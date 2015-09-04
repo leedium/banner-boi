@@ -62,7 +62,7 @@ module.exports = function(grunt){
 			        expand: true,
 			        cwd: 'src',
 			        src: ['**/*.scss'],
-			        dest: 'build/',
+			        dest: 'temp',
 			        ext: '.css'
 			      }]
 	        }
@@ -74,14 +74,14 @@ module.exports = function(grunt){
 		        filter: {'oldIE': true},
 		        minifier: true,
 		        rem:['12px'],
-		        opacity:true 
+		        opacity:true
 		      },
 		      files: [{
 			        src: ['build/css/**/*.css'],
 			        dest: 'build/css',
 			        ext: '.css'
 			      }]
-		    }	
+		    }
   		},
   		uglify: {
 		  my_target: {
@@ -111,7 +111,7 @@ module.exports = function(grunt){
 			      	],
 			      dest: 'build/js/vendor.js'
 			}
-			
+
 		},
   		htmlmin: {                                     // Task
 		    dist: {                                      // Target
@@ -120,16 +120,15 @@ module.exports = function(grunt){
 		        collapseWhitespace: false
 		      },
 		      files: [{
-		          expand: true,     
-		          cwd: 'src/',      
-		          src: ['**/*.html'], 
-		          dest: 'build/'   // Destination path prefix.
+		          expand: true,
+		          //cwd: 'build/',
+		          src: ['dck/**/*.html'],
+		          //dest: 'dck/'   // Destination path prefix.
 		        }]
 		    }
 		 },
         assemble: {
             options: {
-              //  flatten: true,
               //  assets: 'dist/assets',
                 partials: ['src/templates/partials/*.hbs'],
                 src: ['!src/templates/partials/*.hbs' ]
@@ -157,15 +156,47 @@ module.exports = function(grunt){
         copy: {
             main: {
                 files: [
-                    // includes files within path
-                    //{expand: true, src: ['src/js/*'], dest: 'dest/', filter: 'isFile'},
-                    {cwd:'', src: ['src/js/main.js'], dest: 'dck/src/templates/layouts/dck/main.js'}
+                    { src: ['src/main.js'], dest: [
+                                                    'dck/src/templates/layouts/dck/dck_[campaign]_120x600/main.js',
+                                                    'dck/src/templates/layouts/dck/dck_[campaign]_160x600/main.js',
+                                                    'dck/src/templates/layouts/dck/dck_[campaign]_300x250/main.js',
+                                                    'dck/src/templates/layouts/dck/dck_[campaign]_250x250/main.js',
+                                                    'dck/src/templates/layouts/dck/dck_[campaign]_300x600/main.js',
+                                                    'dck/src/templates/layouts/dck/dck_[campaign]_336x280/main.js',
+                                                    'dck/src/templates/layouts/dck/dck_[campaign]_728x90/main.js'
+                                                  ]
+                    },
+                    { src: ['temp/styles.css'], dest: [
+                                                    'dck/src/templates/layouts/dck/dck_[campaign]_120x600/styles.css',
+                                                    'dck/src/templates/layouts/dck/dck_[campaign]_160x600/styles.css',
+                                                    'dck/src/templates/layouts/dck/dck_[campaign]_300x250/styles.css',
+                                                    'dck/src/templates/layouts/dck/dck_[campaign]_250x250/styles.css',
+                                                    'dck/src/templates/layouts/dck/dck_[campaign]_300x600/styles.css',
+                                                    'dck/src/templates/layouts/dck/dck_[campaign]_336x280/styles.css',
+                                                    'dck/src/templates/layouts/dck/dck_[campaign]_728x90/styles.css'
+                                                   ]
+                    }
                 ]
             }
         }
 
 	});
-	
+
+    var gruntCopy = grunt.config.get('copy');
+    for (var item in gruntCopy) {
+        var files = gruntCopy[item].files;
+        for (var i = files.length - 1; i >= 0; i--) {
+            var fileItem = files[i];
+            if (fileItem.dest instanceof Array) {
+                files.splice(i, 1);
+                for (var j = 0; j < fileItem.dest.length; j++) {
+                    files.push({src: fileItem.src, dest: fileItem.dest[j]})
+                }
+            }
+        }
+    }
+    grunt.config.set('copy', gruntCopy);
+
 	//grunt.loadNpmTasks('grunt-requirejs');
     grunt.loadNpmTasks('assemble' );
 	grunt.loadNpmTasks('grunt-pleeease');
@@ -176,8 +207,8 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-browser-sync');
-	
 
-	grunt.registerTask('default', ['assemble','copy']);
+
+	grunt.registerTask('default', ['sass','assemble','copy','htmlmin']);
 	//grunt.registerTask('default', ['assemble', 'concat','sass','pleeease','uglify','htmlmin','browserSync','watch']);
 }
