@@ -70,15 +70,15 @@ module.exports = function(grunt){
 		pleeease: {
 		    custom: {
 		      options: {
-		        autoprefixer: {'browsers': ["last 4 versions", "ios 6"]},
+		        autoprefixer: {'browsers': ["Firefox < 20", "last 4 versions", "ios 6"]},
 		        filter: {'oldIE': true},
-		        minifier: true,
+		        minifier: false,
 		        rem:['12px'],
 		        opacity:true
 		      },
 		      files: [{
-			        src: ['build/css/**/*.css'],
-			        dest: 'build/css',
+			        src: ['temp/**/*.css'],
+			        dest: 'temp',
 			        ext: '.css'
 			      }]
 		    }
@@ -131,9 +131,9 @@ module.exports = function(grunt){
             options: {
               //  assets: 'dist/assets',
                 partials: ['src/templates/partials/*.hbs'],
-                src: ['!src/templates/partials/*.hbs' ]
+                src: ['!src/templates/partials/*.hbs' ],
                // layoutdir: 'src/templates/layouts/'
-              //  helpers: ['templates/helpers/helper-*.js'],
+                helpers: ['templates/helpers/helper-*.js']
 
                // layout: 'default.hbs'
                // data: ['templates/data/*.{json,yml}']
@@ -198,7 +198,7 @@ module.exports = function(grunt){
     grunt.config.set('copy', gruntCopy);
 
 	//grunt.loadNpmTasks('grunt-requirejs');
-    grunt.loadNpmTasks('assemble' );
+    grunt.loadNpmTasks('grunt-assemble');
 	grunt.loadNpmTasks('grunt-pleeease');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-sass');
@@ -209,6 +209,6 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-browser-sync');
 
 
-	grunt.registerTask('default', ['sass','assemble','copy','htmlmin']);
+	grunt.registerTask('default', ['sass','pleeease','assemble','copy','htmlmin']);
 	//grunt.registerTask('default', ['assemble', 'concat','sass','pleeease','uglify','htmlmin','browserSync','watch']);
 }

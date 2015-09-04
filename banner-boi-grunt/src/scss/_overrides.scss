@@ -1,0 +1,31 @@
+@import "mixins/size-300x250";
+@import "mixins/size-300x600";
+@import "mixins/size-336x280";
+@import "mixins/size-250x250";
+@import "mixins/size-120x600";
+@import "mixins/size-160x600";
+@import "mixins/size-728x90";
+
+
+
+.size-300x250{
+  @include size-300x250();
+}
+.size-300x600{
+  @include size-300x600();
+}
+.size-336x280{
+  @include size-336x280();
+}
+.size-250x250{
+  @include size-250x250();
+}
+.size-120x600{
+  @include size-120x600();
+}
+.size-160x600{
+  @include size-160x600();
+}
+.size-728x90{
+  @include size-728x90();
+}
