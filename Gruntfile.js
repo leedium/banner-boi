@@ -1,6 +1,5 @@
 var src = 'src';
 var dest = 'build';
-
 var bannerConfig = require('./bannerConfig');
 var mozjpeg = require('imagemin-mozjpeg');
 
@@ -8,15 +7,6 @@ module.exports = function(grunt){
 	require('load-grunt-tasks')(grunt);
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		requirejs: {
-		    compile: {
-		      options: {
-		        baseUrl: "path/to/base",
-		        mainConfigFile: "path/to/config.js",
-		        out: "path/to/optimized.js"
-		      }
-		    }
-		},
 		browserSync: {
 			dev:{
 			    bsFiles: {
@@ -29,7 +19,6 @@ module.exports = function(grunt){
 			    	watchTask: true,
 			        server: "./build"
 			    }
-
 			}
 		},
 		watch: {
@@ -116,31 +105,24 @@ module.exports = function(grunt){
 			}
 
 		},
-  		htmlmin: {                                     // Task
-		    dist: {                                      // Target
-		      options: {                                 // Target options
+  		htmlmin: {
+		    dist: {
+		      options: {
 		        removeComments: true,
 		        collapseWhitespace: false
 		      },
 		      files: [{
 		          expand: true,
 		          //cwd: 'build/',
-		          src: ['temp/**/*.html'],
-		          //dest: 'dck/'   // Destination path prefix.
+		          src: ['temp/**/*.html']
 		        }]
 		    }
 		 },
         assemble: {
             options: {
-              //  assets: 'dist/assets',
                 partials: ['src/templates/partials/*.hbs'],
                 src: ['!src/templates/partials/*.hbs' ],
-               // layoutdir: 'src/templates/layouts/',
-
                 helpers: ['templates/helpers/helper-*.js']
-
-               // layout: 'default.hbs'
-               // data: ['templates/data/*.{json,yml}']
             },
             dck:{
                 files:{
@@ -148,18 +130,18 @@ module.exports = function(grunt){
                 }
             }
         },
-        imagemin: {                          // Task
-            static: {                          // Target
-                options: {                       // Target options
+        imagemin: {
+            static: {
+                options: {
                     optimizationLevel: 3,
                     svgoPlugins: [{ removeViewBox: false }],
                     use: [mozjpeg()]
                 },
                 files: [{
-                    expand: true,                  // Enable dynamic expansion
-                    cwd: 'src/',                   // Src matches are relative to this path
-                    src: ['src/*.{png,jpg,gif}'],   // Actual patterns to match
-                    dest: 'temp/'                  // Destination path prefix
+                    expand: true,
+                    cwd: 'src/',
+                    src: ['src/*.{png,jpg,gif}'],
+                    dest: 'temp/'
                 }]            }
         },
         copy: {
@@ -178,10 +160,10 @@ module.exports = function(grunt){
             images: {
                 files: [
                     {
-                        expand: true,     // Enable dynamic expansion.
-                        cwd: 'src/',      // Src matches are relative to this path.
-                        src: ['**/*.gif','**/*.jpg','**/*.png'], // Actual pattern(s) to match.
-                        dest: 'temp/src'   // Destination path prefix.
+                        expand: true,
+                        cwd: 'src/',
+                        src: ['**/*.gif','**/*.jpg','**/*.png'],
+                        dest: 'temp/src'
                     }
                 ]
 
@@ -197,9 +179,20 @@ module.exports = function(grunt){
                     }
                 ]
             }
+        },
+        replace: {
+            options:{
+                processTemplates:false
+            }
+        },
+        clean: {
+            build: {
+                src: ["temp",'.sass-cache']
+            }
         }
 	});
 
+    //COPY SHARED ASSETS
     var gruntCopy = grunt.config.get('copy');
     var common = gruntCopy.common.files;
     for (var i = common.length - 1; i >= 0; i--) {
@@ -210,12 +203,13 @@ module.exports = function(grunt){
                 }
     }
 
+    //FOLDER RENAME
     var folders = gruntCopy.folders.files;
     for (var i = folders.length - 1; i >= 0; i--) {
         var fileItem = folders[i];
         folders.splice(i, 1);
         for (var k = 0; k < fileItem.dest.length; k++) {
-            var provider = fileItem.dest[k];
+            var provider = fileItem.dest[k].id;
             folders.push({
                 expand:true,
                 cwd:'temp/src/templates/provider-template/',
@@ -233,11 +227,27 @@ module.exports = function(grunt){
         }
     }
 
-
+    //
+    var replaceObj = grunt.config.get('replace');
+    for (var i = bannerConfig.providers.length - 1; i >= 0; i--) {
+        var provider = bannerConfig.providers[i];
+        replaceObj[provider.id] = {
+            src: ['dist/'+provider.id+'/**/*.html'],
+            overwrite: true,
+            replacements: [
+                {from:'{SCRIPT_HEADER}', to: provider.headerScript},
+                {from:'{SCRIPT_FOOTER}', to: provider.footerScript},
+                {from:'{provider}', to: provider.id},
+                {from:'{campaign}', to: bannerConfig.campaignName}
+            ]
+        }
+    }
 
     grunt.config.set('copy', gruntCopy);
+    grunt.config.set('replace', replaceObj);
 
-	//grunt.loadNpmTasks('grunt-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-contrib-rename');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-assemble');
@@ -252,6 +262,6 @@ module.exports = function(grunt){
 
 
 
-	grunt.registerTask('default', ['sass','pleeease','assemble','copy','htmlmin']);
+	grunt.registerTask('default', ['sass','pleeease','assemble','copy','replace', 'htmlmin', 'clean']);
 	//grunt.registerTask('default', ['assemble', 'concat','sass','pleeease','uglify','htmlmin','browserSync','watch']);
 }

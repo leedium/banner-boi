@@ -1,19 +1,19 @@
-#Banner Boi   :)  
-Automated HTML5 Standard Banner Creation Tool to save you time.  *
-
+#Banner Boi   :)
+EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
 
 ![alt text](https://github.com/leedium/banner-boi/blob/master/files.png "Files")
 
-
 ##Includes
 
-Multi Provider support for DoubleClick, Sizmek, Generic Publisher
+Multi Provider support for DoubleClick, Sizmek, ... more to come!
 
 Customizable to add more providers.
 
 8 of the most popular sizes.
 
-300x250, 336x280, 250x250, 120x600, 160x600, 300x600, 120x240, 728x90.
+[300x250, 336x280, 250x250, 120x600, 160x600, 300x600, 120x240, 728x90]
+
+GSAP - Greensock Timeline / TweenLite CDN for animations.
 
 SASS, css-pleeease, pre post css compiler.
 
@@ -29,6 +29,7 @@ ability to override master version.
 
 browser-sync
 
+Coming SOON! - image optimization / sprite sheet generation
 
 
 ## Getting Started
