@@ -144,18 +144,8 @@ module.exports = function(grunt){
             },
             dck:{
                 files:{
-                    'temp/': ['providers/dck/**/*.hbs' ]
+                    'temp/': ['src/templates/providers/**/*.hbs' ]
                 }
-            },
-            sizmek:{
-
-                files:{
-                    'temp/': ['providers/sizmek/**/*.hbs' ]
-                }
-            },
-            pages: {
-                src: src + '/templates/**/*.hbs',
-                dest: dest
             }
         },
         imagemin: {                          // Task
@@ -173,7 +163,7 @@ module.exports = function(grunt){
                 }]            }
         },
         copy: {
-            main: {
+            common: {
                 files: [
                     {
                         src: ['src/main.js'], dest: 'main.js'
@@ -184,6 +174,17 @@ module.exports = function(grunt){
                     }
                 ]
 
+            },
+            images: {
+                files: [
+                    {
+                        expand: true,     // Enable dynamic expansion.
+                        cwd: 'src/',      // Src matches are relative to this path.
+                        src: ['**/*.gif'], // Actual pattern(s) to match.
+                        dest: 'temp/src'   // Destination path prefix.
+                    }
+                ]
+
             }
         }
 
@@ -191,21 +192,21 @@ module.exports = function(grunt){
 	});
 
     var gruntCopy = grunt.config.get('copy');
-    for (var item in gruntCopy) {
-        var files = gruntCopy[item].files;
+    //for (var item in gruntCopy) {
+        var files = gruntCopy.common.files;
         for (var i = files.length - 1; i >= 0; i--) {
             var fileItem = files[i];
             files.splice(i, 1);
-                for (var j = 0; j < bannerConfig.providers.length; j++) {
-                    var provider = bannerConfig.providers[j];
+                //for (var j = 0; j < bannerConfig.providers.length; j++) {
+                    //var provider = bannerConfig.providers[j];
                     for (var k = 0; k < bannerConfig.sizes.length; k++) {
-                        console.log(bannerConfig.dest+ '/' + provider  + '/' + provider+ '-' + bannerConfig.campaignName+ '-' + bannerConfig.sizes[k]  + '/' + fileItem.dest)
-                        files.push({src: fileItem.src, dest: 'temp/providers/' + provider  + '/' + provider+ '-[campaign]-' + bannerConfig.sizes[k]  + '/' + fileItem.dest })
+                        //console.log(bannerConfig.dest+ '/' + provider  + '/' + provider+ '-' + bannerConfig.campaignName+ '-' + bannerConfig.sizes[k]  + '/' + fileItem.dest)
+                        files.push({src: fileItem.src, dest: 'temp/src/templates/providers/provider-campaign-' + bannerConfig.sizes[k]  + '/' + fileItem.dest })
                     }
 
-                }
+                //}
         }
-    }
+   // }
     grunt.config.set('copy', gruntCopy);
 
 	//grunt.loadNpmTasks('grunt-requirejs');
