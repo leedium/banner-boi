@@ -49,6 +49,15 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
   /bannerConfig.js
 ```
 
+## Modify the various html templates(.hbs) styles(.scss), .js
+```js
+  -/src/
+    --/scss/
+    --/templates/
+      --/partials   //overrides for body, content, header , footer
+      --/provider-template  // Shouldn't have to change these!
+```
+
 ## Start Application
 ```js
   $ grunt
