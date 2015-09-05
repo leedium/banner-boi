@@ -14,6 +14,7 @@ var bannerConfig = {
             footerScript:'<script type="text/javascript">function checkInit(){EB.isInitialized()?onInit():EB.addEventListener(EBG.EventName.EB_INITIALIZED,onInit)};function onInit(){startBanner()}</script><script type="text/javascript">checkInit()</script>'
         }],
     sizes : ["120x600","120x240","160x600","300x250","250x250","300x600","336x280","728x90"],
-    minifyCSS: false
+    minifyCSS: false,
+    reloadDelay:1000
 }
 module.exports = bannerConfig;

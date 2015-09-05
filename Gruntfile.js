@@ -1,5 +1,5 @@
 var src = 'src';
-var dest = 'build';
+var dest = 'dist/dck';
 var bannerConfig = require('./bannerConfig');
 var mozjpeg = require('imagemin-mozjpeg');
 
@@ -11,36 +11,41 @@ module.exports = function(grunt){
 			dev:{
 			    bsFiles: {
 			        src : [
-			        		'build/css/**/*.css',
-			        		'build/*.html'
+                        dest+'/**/*.css',
+                        dest+'**/*.html',
+                        dest+'**/*.js'
 			        	]
 			    },
 			    options: {
+                    reloadDelay:bannerConfig.reloadDelay,
 			    	watchTask: true,
-			        server: "./build"
+			        server: dest,
+                    open:false
 			    }
 			}
 		},
 		watch: {
 		  css: {
 		    files: 'src/**/*.scss',
-		    tasks: ['sass','pleeease'],
+		    tasks: ['default'],
 		    options: {
-		      debounceDelay: 500
+		      debounceDelay: 1000
 		    }
 		  },
-		  html: {
-		    files: 'src/**/*.html',
-		    tasks: ['htmlmin'],
+		  hbs: {
+		    files: 'src/**/*.hbs',
+		    tasks: ['default'],
 		    options: {
-		      debounceDelay: 500
+
+		      debounceDelay: 1000
 		    }
 		  },
 		  js: {
-		    files: 'src/**/js/*.js',
-		    tasks: ['uglify'],
+		    files: 'src/**/*.js',
+		    tasks: ['default'],
 		    options: {
-		      debounceDelay: 500
+
+		      debounceDelay: 1000
 		    }
 		  }
 
@@ -91,20 +96,6 @@ module.exports = function(grunt){
 		      }]
 	      	}
   		},
-  		concat: {
-	    	options: {
-			      separator: ';'
-			},
-			vendor: {
-			      src: [
-			      		'bower_components/jquery/dist/jquery.min.js',
-			      		'bower_components/jquery/dist/jquery.min.map'
-
-			      	],
-			      dest: 'build/js/vendor.js'
-			}
-
-		},
   		htmlmin: {
 		    dist: {
 		      options: {
@@ -237,8 +228,8 @@ module.exports = function(grunt){
             replacements: [
                 {from:'{SCRIPT_HEADER}', to: provider.headerScript},
                 {from:'{SCRIPT_FOOTER}', to: provider.footerScript},
-                {from:'{provider}', to: provider.id},
-                {from:'{campaign}', to: bannerConfig.campaignName}
+                {from:'provider', to: provider.id},
+                {from:'campaign', to: bannerConfig.campaignName}
             ]
         }
     }
@@ -261,7 +252,7 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-browser-sync');
 
 
-
-	grunt.registerTask('default', ['sass','pleeease','assemble','copy','replace', 'htmlmin', 'clean']);
+    grunt.registerTask('process',['sass','pleeease','assemble','copy','replace','browserSync','watch']);
+	grunt.registerTask('default', ['sass','pleeease','assemble','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
 	//grunt.registerTask('default', ['assemble', 'concat','sass','pleeease','uglify','htmlmin','browserSync','watch']);
 }
