@@ -45,6 +45,9 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 ```
 
 ## Configure bannerConfig.js
+```js
+  /bannerConfig.js
+```
 
 ## Start Application
 ```js
