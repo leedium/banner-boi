@@ -224,7 +224,21 @@ module.exports = function(grunt){
         var fileItem = folders[i];
         folders.splice(i, 1);
         for (var k = 0; k < fileItem.dest.length; k++) {
-            folders.push({expand:true, cwd:'temp/src/templates/providers/', src: fileItem.src, dest: 'dist/' + fileItem.dest[k]  + '/'})
+            var provider = fileItem.dest[k];
+            folders.push({
+                expand:true,
+                cwd:'temp/src/templates/providers/',
+                src: fileItem.src,
+                dest: 'dist/' + provider  + '/',
+                rename: function(p) {
+
+                 return  function (dest, src) {
+                            console.log(dest, src)
+                            var name = src.replace('provider', p).replace('campaign', bannerConfig.campaignName);
+                            return dest + name;
+                        }
+                }(provider)
+            })
         }
     }
 
