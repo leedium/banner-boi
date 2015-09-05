@@ -2,15 +2,27 @@
 Automated HTML5 Standard Banner Creation Tool to save you time.  *
 
 ##Includes
-Multi Provider support for DoubleClick, Sizmek, Generic Publisher, customizable to add more providers
+
+Multi Provider support for DoubleClick, Sizmek, Generic Publisher
+
+Customizable to add more providers.
+
 8 of the most popular sizes.
-300x250, 336x280, 250x250, 120x600, 160x600, 300x600, 120x240, 728x90
-SASS, css-pleeease, pre post css compiler
+
+300x250, 336x280, 250x250, 120x600, 160x600, 300x600, 120x240, 728x90.
+
+SASS, css-pleeease, pre post css compiler.
+
 Full Support for IE9 and above.
+
 Handlebars for templating.
+
 html minification
+
 image optimization
+
 ability to override master version.
+
 browser-sync
 
 
