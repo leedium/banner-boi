@@ -3,7 +3,7 @@ EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amou
 
 ![alt text](https://github.com/leedium/banner-boi/blob/master/files.png "Files")
 
-[Example](http://bannerboi.leedium.com)
+##[Example](http://bannerboi.leedium.com)
 
 ##Includes
 
