@@ -13,6 +13,7 @@ var bannerConfig = {
             headerScript:'<script type="text/javascript" src="http://ds.serving-sys.com/BurstingScript/EBLoader.js"></script>',
             footerScript:'<script type="text/javascript">function checkInit(){EB.isInitialized()?onInit():EB.addEventListener(EBG.EventName.EB_INITIALIZED,onInit)}function onInit(){startBanner()}</script><script type="text/javascript">checkInit()</script>'
         }],
-    sizes : ["120x600","120x240","160x600","300x250","250x250","300x600","336x280","728x90"]
+    sizes : ["120x600","120x240","160x600","300x250","250x250","300x600","336x280","728x90"],
+    minifyCSS: false
 }
 module.exports = bannerConfig;
