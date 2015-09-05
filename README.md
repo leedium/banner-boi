@@ -1,4 +1,4 @@
-#Banner Boi   :)
+#banner-boi   :)
 EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
 
 ![alt text](https://github.com/leedium/banner-boi/blob/master/files.png "Files")
