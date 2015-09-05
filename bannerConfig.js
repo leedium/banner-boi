@@ -15,6 +15,6 @@ var bannerConfig = {
         }],
     sizes : ["120x600","120x240","160x600","300x250","250x250","300x600","336x280","728x90"],
     minifyCSS: false,
-    reloadDelay:1000
+    reloadDelay:3000
 }
 module.exports = bannerConfig;
