@@ -23,8 +23,6 @@ Handlebars for templating.
 
 html minification
 
-image optimization
-
 ability to override master version.
 
 browser-sync
