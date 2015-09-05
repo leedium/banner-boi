@@ -1,7 +1,9 @@
 #Banner Boi   :)  
 Automated HTML5 Standard Banner Creation Tool to save you time.  *
 
-[logo]: https://github.com/leedium/banner-boi/blob/master/files.png "Provider Output"
+
+![alt text](https://github.com/leedium/banner-boi/blob/master/files.png "Files")
+
 
 ##Includes
 
