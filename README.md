@@ -1,16 +1,18 @@
-#LEEDIUM HTML-JS-SASS-Grunt-Dev-Working-Environment
-Tools to quickly help get up and running with Grunt and other popular web frameworks
+#Banner Boi   :)
+Automated HTML5 Standard Banner Creation Tool to save you time.  *
 
 ##Includes
-
-sass
-css-pleeease
-uglify
-concatenation
+Multi Provider support for DoubleClick, Sizmek, Generic Publisher, customizable to add more providers
+8 of the most popular sizes.
+300x250, 336x280, 250x250, 120x600, 160x600, 300x600, 120x240, 728x90
+SASS, css-pleeease, pre post css compiler
+Full Support for IE9 and above.
+Handlebars for templating.
 html minification
-browser-watch
+image optimization
+ability to override master version.
 browser-sync
-jquery
+
 
 
 ## Getting Started

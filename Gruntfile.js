@@ -144,7 +144,7 @@ module.exports = function(grunt){
             },
             dck:{
                 files:{
-                    'temp/': ['src/templates/providers/**/*.hbs' ]
+                    'temp/': ['src/templates/provider-template/**/*.hbs' ]
                 }
             }
         },
@@ -191,22 +191,13 @@ module.exports = function(grunt){
                 files:[
                     {
                         expand:true,
-                        cwd:'temp/src/templates/providers/',
+                        cwd:'temp/src/templates/provider-template/',
                         src: ['**','**/*.*'],
                         dest: bannerConfig.providers
                     }
                 ]
             }
-        },
-        rename: {
-            main: {
-                files: [
-                    {src: ['path/to/[file or folder]'], dest: 'path/to/[file-renamed or folder-renamed]'}
-                ]
-            }
         }
-
-
 	});
 
     var gruntCopy = grunt.config.get('copy');
@@ -215,7 +206,7 @@ module.exports = function(grunt){
         var fileItem = common[i];
                 common.splice(i, 1);
                 for (var k = 0; k < bannerConfig.sizes.length; k++) {
-                    common.push({src: fileItem.src, dest: 'temp/src/templates/providers/provider-campaign-' + bannerConfig.sizes[k]  + '/' + fileItem.dest })
+                    common.push({src: fileItem.src, dest: 'temp/src/templates/provider-template/provider-campaign-' + bannerConfig.sizes[k]  + '/' + fileItem.dest })
                 }
     }
 
@@ -227,7 +218,7 @@ module.exports = function(grunt){
             var provider = fileItem.dest[k];
             folders.push({
                 expand:true,
-                cwd:'temp/src/templates/providers/',
+                cwd:'temp/src/templates/provider-template/',
                 src: fileItem.src,
                 dest: 'dist/' + provider  + '/',
                 rename: function(p) {
