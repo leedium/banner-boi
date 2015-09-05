@@ -62,7 +62,7 @@ module.exports = function(grunt){
 		pleeease: {
 		    custom: {
 		      options: {
-		        autoprefixer: {'browsers': ["Firefox < 20", "last 4 versions", "ios 6"]},
+		        autoprefixer: {'browsers': ["ie 8", "Firefox < 20", "last 4 versions", "ios 6"]},
 		        filter: {'oldIE': true},
 		        minifier: bannerConfig.minifyCSS,
 		        rem:['12px'],

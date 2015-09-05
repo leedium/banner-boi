@@ -2,7 +2,7 @@ function startBanner() {
     var tl = new TimelineLite();
     var bannerSize = document.getElementById('app').getAttribute('data-size');
     tl.stop();
-    tl.add(TweenLite.to('#copy1', 2, {x: '20%', ease: Quint.easeOut}), "+=2");
+    tl.add(TweenLite.to('#copy1', 2, {opacity:1, x: '0%', ease: Quint.easeOut}), "+=.3");
     switch (bannerSize) {
         case "size-300x250":
 

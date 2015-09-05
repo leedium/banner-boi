@@ -1,0 +1,4 @@
+@mixin radialGradient($color1: #0776A7,$color2: #1B3763){
+  background: radial-gradient(50% 50%, circle cover, $color1 0%, $color2 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color1}', endColorstr='#{$color2}',GradientType=1 );
+}
