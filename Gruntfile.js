@@ -80,22 +80,6 @@ module.exports = function(grunt){
 			      }]
 		    }
   		},
-  		uglify: {
-		  my_target: {
-		  	options: {
-		        beautify: {
-		          width: 80,
-		          beautify: true
-		        }
-		    },
-		    files: [{
-		          expand: true,
-		          cwd: 'src',
-		          src: '**/*.js',
-		          dest: 'build/'
-		      }]
-	      	}
-  		},
   		htmlmin: {
 		    dist: {
 		      options: {
@@ -109,6 +93,29 @@ module.exports = function(grunt){
 		        }]
 		    }
 		 },
+        image: {
+            dynamic: {
+                options: {
+                    pngquant: true,
+                    optipng: false,
+                    advpng: false,
+                    zopflipng: false,
+                    pngcrush: true,
+                    pngout: true,
+                    mozjpeg: true,
+                    jpegRecompress: false,
+                    jpegoptim: true,
+                    gifsicle: true,
+                    svgo: false
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'src/',
+                    src: ['**/*.{png,jpg,gif,svg}'],
+                    dest: 'temp/src/'
+                }]
+            }
+        },
         assemble: {
             options: {
                 partials: ['src/templates/partials/*.hbs'],
@@ -120,20 +127,6 @@ module.exports = function(grunt){
                     'temp/': ['src/templates/provider-template/**/*.hbs' ]
                 }
             }
-        },
-        imagemin: {
-            static: {
-                options: {
-                    optimizationLevel: 3,
-                    svgoPlugins: [{ removeViewBox: false }],
-                    use: [mozjpeg()]
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'src/',
-                    src: ['src/*.{png,jpg,gif}'],
-                    dest: 'temp/'
-                }]            }
         },
         copy: {
             common: {
@@ -148,17 +141,17 @@ module.exports = function(grunt){
                 ]
 
             },
-            images: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'src/',
-                        src: ['**/*.gif','**/*.jpg','**/*.png'],
-                        dest: 'temp/src'
-                    }
-                ]
-
-            },
+//            images: {
+//                files: [
+//                    {
+//                        expand: true,
+//                        cwd: 'src/',
+//                        src: ['**/*.gif','**/*.jpg','**/*.png'],
+//                        dest: 'temp/src'
+//                    }
+//                ]
+//
+//            },
             imagesToFolders: {
                 files: [
                     {
@@ -167,7 +160,7 @@ module.exports = function(grunt){
                         src: ['*.gif','*.jpg','*.png'],
                         dest: 'temp/src/templates/provider-template'
                     }
-                ]
+                ],
 
             },
             folders:{
@@ -259,19 +252,15 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-contrib-rename');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-assemble');
 	grunt.loadNpmTasks('grunt-pleeease');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-htmlmin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-browser-sync');
 
 
-    //grunt.registerTask('default',['sass','pleeease','assemble','copy']);
+    //grunt.registerTask('default',['sass','pleeease','assemble','image','copy','replace',]);
 	grunt.registerTask('default', ['sass','pleeease','assemble','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
-	//grunt.registerTask('default', ['assemble', 'concat','sass','pleeease','uglify','htmlmin','browserSync','watch']);
 }
