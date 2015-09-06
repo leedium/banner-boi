@@ -262,5 +262,5 @@ module.exports = function(grunt){
 
 
     //grunt.registerTask('default',['sass','pleeease','assemble','image','copy','replace',]);
-	grunt.registerTask('default', ['sass','pleeease','assemble','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
+	grunt.registerTask('default', ['sass','pleeease','assemble','image','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
 }
