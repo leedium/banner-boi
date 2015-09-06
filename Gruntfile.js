@@ -27,14 +27,14 @@ module.exports = function(grunt){
 		watch: {
 		  css: {
 		    files: 'src/**/*.scss',
-		    tasks: ['default'],
+		    tasks: ['noImageMin'],
 		    options: {
 		      debounceDelay: 1000
 		    }
 		  },
 		  hbs: {
 		    files: 'src/**/*.hbs',
-		    tasks: ['default'],
+		    tasks: ['noImageMin'],
 		    options: {
 
 		      debounceDelay: 1000
@@ -42,7 +42,7 @@ module.exports = function(grunt){
 		  },
 		  js: {
 		    files: 'src/**/*.js',
-		    tasks: ['default'],
+		    tasks: ['noImageMin'],
 		    options: {
 
 		      debounceDelay: 1000
@@ -262,5 +262,6 @@ module.exports = function(grunt){
 
 
     //grunt.registerTask('default',['sass','pleeease','assemble','image','copy','replace',]);
-	grunt.registerTask('default', ['sass','pleeease','assemble','image','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
+    grunt.registerTask('noImageMin', ['sass','pleeease','assemble','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
+    grunt.registerTask('default', ['sass','pleeease','assemble','image','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
 }
