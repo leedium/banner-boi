@@ -159,6 +159,17 @@ module.exports = function(grunt){
                 ]
 
             },
+            imagesToFolders: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'temp/src/',
+                        src: ['*.gif','*.jpg','*.png'],
+                        dest: 'temp/src/templates/provider-template'
+                    }
+                ]
+
+            },
             folders:{
 
                 files:[
@@ -186,14 +197,24 @@ module.exports = function(grunt){
     //COPY SHARED ASSETS
     var gruntCopy = grunt.config.get('copy');
     var common = gruntCopy.common.files;
+    var providerFolder;
     for (var i = common.length - 1; i >= 0; i--) {
         var fileItem = common[i];
-                common.splice(i, 1);
-                for (var k = 0; k < bannerConfig.sizes.length; k++) {
-                    common.push({src: fileItem.src, dest: 'temp/src/templates/provider-template/provider-campaign-' + bannerConfig.sizes[k]  + '/' + fileItem.dest })
-                }
+        common.splice(i, 1);
+        for (var k = 0; k < bannerConfig.sizes.length; k++) {
+            providerFolder = 'temp/src/templates/provider-template/provider-campaign-' + bannerConfig.sizes[k]  + '/';
+            common.push({src: fileItem.src, dest: providerFolder + fileItem.dest })
+        }
     }
-
+    var imagesToFolders = gruntCopy.imagesToFolders.files;
+    for (var i = imagesToFolders.length - 1; i >= 0; i--) {
+        var fileItem = imagesToFolders[i];
+        imagesToFolders.splice(i, 1);
+        for (var k = 0; k < bannerConfig.sizes.length; k++) {
+            providerFolder = 'temp/src/templates/provider-template/provider-campaign-' + bannerConfig.sizes[k]  + '/';
+            imagesToFolders.push({expand: true, cwd: 'temp/src/', src: fileItem.src, dest: providerFolder });
+        }
+    }
     //FOLDER RENAME
     var folders = gruntCopy.folders.files;
     for (var i = folders.length - 1; i >= 0; i--) {
@@ -207,9 +228,7 @@ module.exports = function(grunt){
                 src: fileItem.src,
                 dest: bannerConfig.dest +'/' + provider  + '/',
                 rename: function(p) {
-
                  return  function (dest, src) {
-                            console.log(dest, src)
                             var name = src.replace('provider', p).replace('campaign', bannerConfig.campaignName);
                             return dest + name;
                         }
@@ -252,7 +271,7 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-browser-sync');
 
 
-    grunt.registerTask('process',['sass','pleeease','assemble','copy','replace','browserSync','watch']);
+    //grunt.registerTask('default',['sass','pleeease','assemble','copy']);
 	grunt.registerTask('default', ['sass','pleeease','assemble','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
 	//grunt.registerTask('default', ['assemble', 'concat','sass','pleeease','uglify','htmlmin','browserSync','watch']);
 }
