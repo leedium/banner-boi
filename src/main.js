@@ -1,6 +1,6 @@
 function startBanner() {
     var tl = new TimelineLite();
-    var bannerSize = document.getElementById('app').getAttribute('data-size');
+    var bannerSize = document.getElementById('app').getAttribute('data-type');
     tl.stop();
     tl.add(TweenLite.to('#copy1', 2, {opacity:1, x: '0%', ease: Quint.easeOut}), "+=.3");
     switch (bannerSize) {
