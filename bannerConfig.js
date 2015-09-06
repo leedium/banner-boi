@@ -1,5 +1,5 @@
 var bannerConfig = {
-    dest: 'delivery',
+    dest: 'dist',
     build : "DEV",
     campaignName : "leedium",
     providers : [

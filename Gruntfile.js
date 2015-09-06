@@ -1,5 +1,5 @@
 var src = 'src';
-var dest = 'dist/dck';
+var prevDest = 'dist/dck';
 var bannerConfig = require('./bannerConfig');
 var mozjpeg = require('imagemin-mozjpeg');
 
@@ -11,15 +11,15 @@ module.exports = function(grunt){
 			dev:{
 			    bsFiles: {
 			        src : [
-                        dest+'/**/*.css',
-                        dest+'**/*.html',
-                        dest+'**/*.js'
+                            prevDest+'/**/*.css',
+                            prevDest+'**/*.html',
+                            prevDest+'**/*.js'
 			        	]
 			    },
 			    options: {
                     reloadDelay:bannerConfig.reloadDelay,
 			    	watchTask: true,
-			        server: dest,
+			        server: prevDest,
                     open:false
 			    }
 			}
@@ -205,7 +205,7 @@ module.exports = function(grunt){
                 expand:true,
                 cwd:'temp/src/templates/provider-template/',
                 src: fileItem.src,
-                dest: 'dist/' + provider  + '/',
+                dest: bannerConfig.dest +'/' + provider  + '/',
                 rename: function(p) {
 
                  return  function (dest, src) {
@@ -223,7 +223,7 @@ module.exports = function(grunt){
     for (var i = bannerConfig.providers.length - 1; i >= 0; i--) {
         var provider = bannerConfig.providers[i];
         replaceObj[provider.id] = {
-            src: ['dist/'+provider.id+'/**/*.html'],
+            src: [bannerConfig.dest+ '/' +provider.id+'/**/*.html'],
             overwrite: true,
             replacements: [
                 {from:'{SCRIPT_HEADER}', to: provider.headerScript},
