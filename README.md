@@ -31,7 +31,7 @@ ability to override master version.
 
 browser-sync
 
-Coming SOON! - image optimization / sprite sheet generation
+Coming SOON! - sprite sheet generation
 Coming SOON! - Apple iAd support
 
 
