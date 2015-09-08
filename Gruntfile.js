@@ -1,7 +1,6 @@
 var src = 'src';
 var prevDest = 'dist/dck';
 var bannerConfig = require('./bannerConfig');
-var mozjpeg = require('imagemin-mozjpeg');
 
 module.exports = function(grunt){
     require('load-grunt-tasks')(grunt);
@@ -88,7 +87,6 @@ module.exports = function(grunt){
                 },
                 files: [{
                     expand: true,
-                    //cwd: 'build/',
                     src: ['temp/**/*.html']
                 }]
             }
@@ -141,17 +139,6 @@ module.exports = function(grunt){
                 ]
 
             },
-//            images: {
-//                files: [
-//                    {
-//                        expand: true,
-//                        cwd: 'src/',
-//                        src: ['**/*.gif','**/*.jpg','**/*.png'],
-//                        dest: 'temp/src'
-//                    }
-//                ]
-//
-//            },
             imagesToFolders: {
                 files: [
                     {
@@ -160,8 +147,7 @@ module.exports = function(grunt){
                         src: ['*.gif','*.jpg','*.png'],
                         dest: 'temp/src/templates/provider-template'
                     }
-                ],
-
+                ]
             },
             folders:{
 
@@ -194,6 +180,13 @@ module.exports = function(grunt){
                 files: [
                     {expand: true, cwd: 'dist/', src: ['**'], dest: './'}
                 ]
+            }
+        },
+        sprite:{
+            all: {
+                src: 'src/sprites/*.png',
+                dest: 'src/spritesheet.png',
+                destCss: 'src/_sprites.scss'
             }
         }
     });
@@ -257,8 +250,10 @@ module.exports = function(grunt){
         }
     }
 
+
     grunt.config.set('copy', gruntCopy);
     grunt.config.set('replace', replaceObj);
+    grunt.loadNpmTasks('grunt-spritesmith');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-text-replace');
@@ -274,5 +269,5 @@ module.exports = function(grunt){
 
     //grunt.registerTask('default',['sass','pleeease','assemble','image','copy','replace',]);
     grunt.registerTask('noImageMin', ['sass','pleeease','assemble','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
-    grunt.registerTask('default', ['sass','pleeease','assemble','image','copy','replace', 'htmlmin', 'clean', 'compress', 'browserSync','watch' ]);
+    grunt.registerTask('default', ['sprite','sass','pleeease','assemble','image','copy','replace', 'htmlmin', 'clean', 'compress', 'browserSync','watch' ]);
 }
