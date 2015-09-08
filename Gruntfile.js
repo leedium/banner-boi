@@ -184,6 +184,17 @@ module.exports = function(grunt){
             build: {
                 src: ["temp",'.sass-cache']
             }
+        },
+        // make a zipfile
+        compress: {
+            main: {
+                options: {
+                    archive: bannerConfig.campaignName + '-banners.zip'
+                },
+                files: [
+                    {expand: true, cwd: 'dist/', src: ['**'], dest: './'}
+                ]
+            }
         }
     });
 
@@ -248,7 +259,7 @@ module.exports = function(grunt){
 
     grunt.config.set('copy', gruntCopy);
     grunt.config.set('replace', replaceObj);
-
+    grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-contrib-rename');
@@ -263,5 +274,5 @@ module.exports = function(grunt){
 
     //grunt.registerTask('default',['sass','pleeease','assemble','image','copy','replace',]);
     grunt.registerTask('noImageMin', ['sass','pleeease','assemble','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
-    grunt.registerTask('default', ['sass','pleeease','assemble','image','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
+    grunt.registerTask('default', ['sass','pleeease','assemble','image','copy','replace', 'htmlmin', 'clean', 'compress', 'browserSync','watch' ]);
 }
