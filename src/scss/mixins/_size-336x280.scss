@@ -1,6 +1,13 @@
 @mixin size-336x280(){
-  #main{
-    width:336px;
-    height:280px;
+  .cta {
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    bottom: $margins *2;
+    right: $margins * 2;
+    font-weight: 400;
+    opacity: 0;
   }
+
+
 }

@@ -1,6 +1,43 @@
 @mixin size-728x90(){
-  #main{
-    width:728px;
-    height:90px;
+
+  #promologo{
+    width: 77px;
+    left:24%;
+    @include vCenter(77px);
+  }
+
+  #product{
+    right: 18%;
+    top: -19px;
+    left:inherit;
+    width: 121px;
+    @include vCenter(126px);
+  }
+
+  .motorcraft-logo{
+    width:141px;
+    left:$margins-left;
+    @include vCenter(36px);
+  }
+
+  .banner-copy{
+    top:0;
+    font-size:$baseFontSize - 9;
+    line-height:$baseLineHeight - 8;
+    left:34%;
+    @include vCenter(50px);
+  }
+
+  #copy1{
+    width:188px;
+  }
+  #copy2{
+
+  }
+
+  .cta{
+    top:50%;
+    margin-top: -20px;
+
   }
 }

@@ -1,6 +1,18 @@
 @mixin size-160x600(){
-  #main{
-    width:160px;
-    height:600px;
+  @include size-120x600();
+  #promologo{
+    top:75px;
   }
+  .banner-copy{
+    top: 222px;
+    font-size: $baseFontSize -  3;
+    line-height: $baseFontSize;
+  }
+
+  #product{
+    right: -12px;
+    bottom: 10%;
+    width: 181px;
+  }
+
 }

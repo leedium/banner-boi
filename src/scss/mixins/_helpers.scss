@@ -2,3 +2,13 @@
   background: radial-gradient(50% 50%, circle cover, $color1 0%, $color2 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color1}', endColorstr='#{$color2}',GradientType=1 );
 }
+
+@mixin vCenter($pxVal){
+  top:50%;
+  margin-top:-$pxVal * 0.5;
+}
+@mixin hCenter($pxVal){
+  left:50%;
+  width:$pxVal;
+  margin-left:-$pxVal * 0.5;
+}

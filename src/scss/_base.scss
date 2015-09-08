@@ -1,11 +1,17 @@
+
+
 *{
   box-sizing: border-box;
 }
-html,body,h1,h2,h3,h4,h5,h6{
+html,body,h1,h2,h3,h4,h5,h6,p{
   padding:0;
   margin:0;
   color: white;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
+
+}
+
+body{
 
 }
 
@@ -19,12 +25,111 @@ html,body,h1,h2,h3,h4,h5,h6{
   right:0;
   bottom:0;
 }
+
+
 #main{
-  @include radialGradient();
-  opacity:1;
+  color:white;
+  width:inherit;
+  height:inherit;
+  font-size: 24px;
+  font-weight: 300;
+  font-family:"Open Sans", Helvetica, Arial, sans-serif;
+  position: relative;
+  @include radialGradient(#FFFFFF,#CCCCCC);
+
+  > div{
+    position:absolute;
+    //width:100%;
+  }
 }
 
-#copy1{
-  opacity:0;
-  transform:translateX(100%);
+
+
+#product{
+  left: 5%;
+  top: 13%;
+  width: 206px;
+  display:none;
+  >img{
+    width:100%;
+  }
+
 }
+
+#promologo{
+  left: $margins-left;
+  top: $margins;
+
+  width:80px;
+  height:80px;
+
+  opacity: 0;
+
+
+  > img{
+    width: 100%;
+    height:auto;
+  }
+}
+
+#copy1,
+#copy2,
+#copy3,
+{
+  //display: none;
+}
+
+.banner-copy{
+  top: 100px;
+  font-size: $baseFontSize;
+  width:248px;
+  padding: 10px $margins 10px $margins-left;
+  line-height: 28px;
+  z-index: 3;
+  display:none;
+  text-shadow: 1px 1px 0px rgba(27,55,99,1);
+  transform:translateY(100%);
+
+  span{
+    display:block;
+  }
+
+  strong{
+    font-weight:600;
+  }
+
+}
+
+.motorcraft-logo{
+  position: absolute;
+  right: $margins;
+  top: $margins;
+  >img{
+    width:100%;
+  }
+}
+
+
+.cta{
+  color:white;
+  font-size:12px;
+  position: absolute;
+  bottom: $margins;
+  right: $margins;
+  font-weight:400;
+  opacity: 0;
+
+
+  &:before {
+    content: " ";
+    background: url(cta-arrow.png) no-repeat 0 center;
+    display: inline-block;
+    width: 26px;
+    height: 23px;
+    position: relative;
+    top: 8px;
+    margin-left: 3px;
+  }
+
+}
+

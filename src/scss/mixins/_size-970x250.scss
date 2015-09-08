@@ -1,0 +1,37 @@
+@mixin size-970x250(){
+  @include size-728x90();
+
+  #product{
+    right: 18%;
+    top: -19px;
+    left:inherit;
+    width: 236px;
+    @include vCenter(236px);
+  }
+
+  #promologo{
+    width: 100px;
+    left:19%;
+    @include vCenter(100px);
+  }
+
+  .banner-copy{
+    font-size: inherit;
+    line-height: inherit;
+    width: 276px;
+    left: 30%;
+    top: 107px;
+    margin-top: -47px;
+  }
+
+  #copy1{
+    @include vCenter(86px);
+    width:248px;
+  }
+
+  .cta{
+   right:20px;
+
+  }
+
+}

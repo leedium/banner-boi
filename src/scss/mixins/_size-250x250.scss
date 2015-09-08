@@ -3,4 +3,27 @@
     width:250px;
     height:250px;
   }
+
+  #product{
+    width:170px;
+  }
+
+  #promologo{
+
+    > img{
+      width: 50px;
+    }
+  }
+
+  .banner-copy{
+
+    font-size:22px;
+  }
+
+  .info-panel__copy > img {
+    width:70px;
+    top:26px;
+    right: 10px;
+  }
 }
+

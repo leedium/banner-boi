@@ -1,6 +1,41 @@
 @mixin size-120x600(){
-  #main{
-    width:120px;
-    height:600px;
+
+  .motorcraft-logo{
+    @include hCenter(94%);
+  }
+
+  .banner-copy{
+    top:198px;
+    font-size:$baseFontSize - 9;
+    line-height:$baseLineHeight - 8;
+    width:100%;
+  }
+  #promologo{
+    top: 90px;
+    @include hCenter(94%);
+  }
+
+  #product{
+    right: -12px;
+    bottom: 13%;
+    top: inherit;
+    width: 160px;
+    left:inherit;
+  }
+
+  .cta{
+    right:inherit;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    &:before{
+      width: 26px;
+      height: 23px;
+      position: relative;
+      margin: 0 auto;
+      left:inherit;
+      display: block;
+      top:-2px;
+    }
   }
 }

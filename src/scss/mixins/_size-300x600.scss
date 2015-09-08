@@ -1,6 +1,19 @@
 @mixin size-300x600(){
-  #main{
-    width:300px;
-    height:600px;
+  @include size-160x600();
+  .motorcraft-logo{
+    @include hCenter(50%);
+    top:$margins;
+
+  }
+  #promologo{
+    @include hCenter(50%);
+  }
+
+  #product{
+    @include hCenter(80%);
+  }
+
+  .cta{
+    font-size:15px;
   }
 }
