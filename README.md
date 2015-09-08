@@ -17,6 +17,8 @@ Customizable to add more providers.
 
 JPG, GIF, PNG image optimization
 
+spritesheet generation for non responsive images
+
 GSAP - Greensock Timeline / TweenLite CDN for animations.
 
 SASS, css-pleeease, pre post css compiler.
@@ -32,8 +34,6 @@ html minification
 ability to override master version.
 
 browser-sync
-
-Coming SOON! - sprite sheet generation
 
 Coming SOON! - Apple iAd support
 
