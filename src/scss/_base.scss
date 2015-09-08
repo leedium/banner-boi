@@ -15,6 +15,11 @@ body{
 
 }
 
+.company-logo{
+  @include sprite($company-logo);
+}
+
+
 .clickTag{
   position: absolute;
   width:100%;
@@ -122,13 +127,14 @@ body{
 
   &:before {
     content: " ";
-    background: url(cta-arrow.png) no-repeat 0 center;
+    background: url($cta-arrow-image) no-repeat $cta-arrow-offset-x $cta-arrow-offset-y;
     display: inline-block;
-    width: 26px;
-    height: 23px;
+    width: $cta-arrow-width;
+    height: $cta-arrow-height;
     position: relative;
     top: 8px;
     margin-left: 3px;
+    margin-right: 3px;
   }
 
 }

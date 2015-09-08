@@ -1,3 +1,33 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
 * {
   -moz-box-sizing: border-box;
        box-sizing: border-box; }
@@ -7,6 +37,12 @@ html, body, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   color: white;
   font-family: "Open Sans", Helvetica, Arial, sans-serif; }
+
+.company-logo {
+  background-image: url(spritesheet.png);
+  background-position: 0px 0px;
+  width: 145px;
+  height: 32px; }
 
 .clickTag {
   position: absolute;
@@ -88,13 +124,14 @@ html, body, h1, h2, h3, h4, h5, h6, p {
   filter: alpha(opacity=0); }
   .cta:before {
     content: " ";
-    background: url(cta-arrow.png) no-repeat 0 center;
+    background: url("spritesheet.png") no-repeat 0px -32px;
     display: inline-block;
-    width: 26px;
+    width: 23px;
     height: 23px;
     position: relative;
     top: 8px;
-    margin-left: 3px; }
+    margin-left: 3px;
+    margin-right: 3px; }
 
 #app[data-type="size-300x600"] .motorcraft-logo {
   left: 50%;

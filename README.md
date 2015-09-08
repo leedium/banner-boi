@@ -56,10 +56,11 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 
 ## Modify the various html templates(.hbs) styles(.scss), .js
 ```js
-  -/src/
-    --/scss/
+  -/src/  //put non sprite images(<img>) here
+    --/sprites/  //where non reszable icons go will be generated as spritesheet.png with associated SASS
+    --/scss/  //SASS styles
     --/templates/
-      --/partials   //overrides for body, content, header , footer
+      --/partials   //overrides for body, content, header , footer HTML
       --/provider-template  // Shouldn't have to change these!
 ```
 
