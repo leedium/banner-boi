@@ -21,6 +21,8 @@ GSAP - Greensock Timeline / TweenLite CDN for animations.
 
 SASS, css-pleeease, pre post css compiler.
 
+ZIP Compresson on provider packages
+
 Full Support for IE9 and above.
 
 Handlebars for templating.
