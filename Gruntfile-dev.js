@@ -1,5 +1,5 @@
 var src = 'src';
-var prevDest = 'dist/dck';
+var prevDest = 'dist/';
 var bannerConfig = require('./bannerConfig');
 var mozjpeg = require('imagemin-mozjpeg');
 
