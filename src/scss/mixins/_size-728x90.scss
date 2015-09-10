@@ -10,8 +10,7 @@
     right: 18%;
     top: -19px;
     left:inherit;
-    width: 121px;
-    @include vCenter(126px);
+    width: $product-width;
   }
 
   .motorcraft-logo{

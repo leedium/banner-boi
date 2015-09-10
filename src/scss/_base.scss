@@ -55,9 +55,7 @@ body{
   top: 13%;
   width: 206px;
   display:none;
-  >img{
-    width:100%;
-  }
+  @include sprite($product)
 
 }
 

@@ -116,7 +116,7 @@ module.exports = function(grunt){
         },
         assemble: {
             options: {
-                partials: ['src/templates/partials/*.hbs'],
+                partials: ['src/templates/**/*.hbs'],
                 src: ['!src/templates/partials/*.hbs' ],
                 helpers: ['templates/helpers/helper-*.js']
             },
@@ -168,7 +168,7 @@ module.exports = function(grunt){
         },
         clean: {
             build: {
-                src: ["temp",'.sass-cache']
+                src: ["temp",'.sass-cache', 'src/spritesheet.png', 'src/spritesheet-polite.png']
             }
         },
         // make a zipfile
@@ -183,10 +183,19 @@ module.exports = function(grunt){
             }
         },
         sprite:{
+            polite: {
+                src: 'src/sprites-polite/*.png',
+                dest: 'src/spritesheet-polite.png',
+                destCss: 'src/scss/_sprites-polite.scss',
+                imgPath:'spritesheet-polite.png'
+            },
             all: {
                 src: 'src/sprites/*.png',
                 dest: 'src/spritesheet.png',
-                destCss: 'src/_sprites.scss'
+                destCss: 'src/scss/_sprites.scss',
+                imgPath:'spritesheet.png',
+                cssOpts:{functions:false}
+
             }
         }
     });
@@ -268,6 +277,6 @@ module.exports = function(grunt){
 
 
     //grunt.registerTask('default',['sass','pleeease','assemble','image','copy','replace',]);
-    grunt.registerTask('noImageMin', ['sass','pleeease','assemble','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
+    grunt.registerTask('noImageMin', ['sprite','sass','pleeease','assemble','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
     grunt.registerTask('default', ['sprite','sass','pleeease','assemble','image','copy','replace', 'htmlmin', 'clean', 'compress', 'browserSync','watch' ]);
 }

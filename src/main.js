@@ -1,9 +1,10 @@
 function startBanner() {
     var tl = new TimelineLite();
+    document.getElementsByTagName('html')[0].className += "bannerReady";
     var bannerSize = document.getElementById('app').getAttribute('data-type');
     tl.stop();
     var tl = new TimelineLite();
-    console.log(bannerSize);
+
     switch (bannerSize) {
         case "size-300x250":
         case "size-336x280":
@@ -43,6 +44,15 @@ function startBanner() {
             break;
     }
     tl.play();
+}
+
+function loadAssets(){
+    var img = new Image();
+    img.onload = function(){
+        console.log('load')
+        startBanner();
+    }
+    img.src = "spritesheet.png"
 }
 document.getElementById('main').addEventListener('click', bgExitHandler, false);
 
