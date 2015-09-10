@@ -1,0 +1,65 @@
+<script type="text/javascript">
+    function bgExitHandler(){
+
+    }
+    function startBanner() {
+        var tl = new TimelineLite();
+        document.getElementsByTagName('html')[0].className += "bannerReady";
+        var bannerSize = document.getElementById('app').getAttribute('data-type');
+        tl.stop();
+        var tl = new TimelineLite();
+
+
+        {{#is key "300x250"}}
+            {{> mainjs_300x250}}
+        {{/is}}
+
+        {{#is key "336x280"}}
+            {{> mainjs_300x250}}
+        {{/is}}
+
+        {{#is key "250x250"}}
+            {{> mainjs_300x250}}
+        {{/is}}
+
+
+
+
+        {{#is key "728x90"}}
+            {{> mainjs_728x90}}
+        {{/is}}
+
+        {{#is key "970x250"}}
+            {{> mainjs_728x90}}
+        {{/is}}
+
+
+        {{#is key "120x600"}}
+            {{> mainjs_120x600}}
+        {{/is}}
+
+        {{#is key "160x600"}}
+            {{> mainjs_120x600}}
+        {{/is}}
+
+        {{#is key "300x600"}}
+            {{> mainjs_120x600}}
+        {{/is}}
+
+
+
+
+
+
+        tl.play();
+    }
+
+    function loadAssets(){
+        var img = new Image();
+        img.onload = function(){
+            startBanner();
+        }
+        img.src = "spritesheet.png"
+    }
+    document.getElementById('main').addEventListener('click', bgExitHandler, false);
+</script>

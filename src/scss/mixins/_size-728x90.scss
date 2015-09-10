@@ -1,9 +1,9 @@
 @mixin size-728x90(){
 
   #promologo{
-    width: 77px;
+    //width: 77px;
     left:24%;
-    @include vCenter(77px);
+   // @include vCenter(77px);
   }
 
   #product{

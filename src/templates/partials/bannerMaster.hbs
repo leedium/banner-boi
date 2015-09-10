@@ -1,14 +1,31 @@
-<div id="promologo"></div>
-<div id="copy1" class="banner-copy">
-    <p>The Legend continues.</p>
+<!doctype HTML>
+<html id="app" data-type="size-{{width}}x{{height}}">
+<head>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TimelineLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/easing/EasePack.min.js"></script>
+    {SCRIPT_HEADER}
+</head>
+<body>
+<div id="main" style="width:{{width}}px; height:{{height}}px;">
+    <div id="promologo"></div>
+    <div id="copy1" class="banner-copy">
+        <p>The Legend continues.</p>
+    </div>
+    <div id="copy2" class="banner-copy">
+        <p>Jordan VII.  The Legend Returns Spring 2016</p>
+    </div>
+    <div id="product"></div>
+    <p class="cta">buy now</p>
+    <div class="motorcraft-logo">
+        <div class="company-logo"></div>
+    </div>
+    <a class="clickTag" href="#"></a>
 </div>
-<div id="copy2" class="banner-copy">
-    <p>Jordan VII.  The Legend Returns Spring 2016</p>
-</div>
-<div id="product"></div>
-<p class="cta">buy now</p>
-<div class="motorcraft-logo">
-    <div class="company-logo"></div>
-</div>
-<a class="clickTag" href="#"></a>
-</div>
+{{> mainjs }}
+
+{SCRIPT_FOOTER}
+</body>
+</html>
