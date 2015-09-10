@@ -49,7 +49,6 @@ function startBanner() {
 function loadAssets(){
     var img = new Image();
     img.onload = function(){
-        console.log('load')
         startBanner();
     }
     img.src = "spritesheet.png"

@@ -121,11 +121,6 @@ module.exports = function(grunt){
                 partials: ['src/templates/partials/*.hbs'],
                 src: ['!src/templates/partials/*.hbs' ],
                 helpers: ['templates/helpers/helper-*.js']
-            },
-            dck:{
-                files:{
-                    'temp/': ['src/templates/provider-template/**/*.hbs' ]
-                }
             }
         },
         copy: {
