@@ -45,6 +45,7 @@
   },
   "homepage": "https://github.com/leedium/banner-boi",
   "dependencies": {
+    "grunt-spritesmith": "^5.0.0",
     "imagemin-mozjpeg": "^5.1.0"
   }
 }
