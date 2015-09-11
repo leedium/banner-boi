@@ -1,6 +1,6 @@
 #banner-boi   :)
 
-##Version 1.0
+##Version 1.0.0
 
 EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
 
@@ -50,6 +50,8 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 
 ```js
   $ npm install
+  OR
+  $ sudo npm install //if you get permission errors
 ```
 
 ## Configure bannerConfig.js
