@@ -1,11 +1,8 @@
 #banner-boi   :)
 EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
 
-#Version 1.0 coming soon - see here
-
+Version 1.0 coming soon - see here
 [Version 1.0](https://github.com/leedium/banner-boi/tree/version-1.0)
-
-https://github.com/leedium/banner-boi/tree/version-1.0
 
 ![alt text](https://github.com/leedium/banner-boi/blob/master/files.png "Files")
 
