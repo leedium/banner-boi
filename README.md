@@ -1,8 +1,15 @@
 #banner-boi   :)
 EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
 
-Version 1.0 coming soon - see here
-[Version 1.0](https://github.com/leedium/banner-boi/tree/version-1.0)
+##Version 1.0
+
+
+##Release history
+
+1.0.0 - Current.
+
+
+EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
 
 ![alt text](https://github.com/leedium/banner-boi/blob/master/files.png "Files")
 
@@ -52,7 +59,7 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
   $ npm install
 ```
 
-## Configure bannerConfig.js
+## Configure bannerConfig.js  - ADD more sizes and providers here
 ```js
   /bannerConfig.js
 ```
@@ -60,11 +67,13 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 ## Modify the various html templates(.hbs) styles(.scss), .js
 ```js
   -/src/  //put non sprite images(<img>) here
-    --/sprites/  //where non reszable icons go will be generated as spritesheet.png with associated SASS
-    --/scss/  //SASS styles
+    --images//sprites/  //where post polite load images go, generated:  spritesheet.png
+    --images//sprites-polite/  //where pre polite load images go, generated spritesheet-polite.png
+    --/scss/  //SASS styles, css overrides for banner sizes
     --/templates/
-      --/partials   //overrides for body, content, header , footer HTML
-      --/provider-template  // Shouldn't have to change these!
+      --/partials   //overrides for js, and markup if need be
+      --/includes   //provider specific api
+      --/provider-template  // Shouldn't have to change these! Only add new ones as required
 ```
 
 ## Start Application

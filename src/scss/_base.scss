@@ -63,16 +63,13 @@ body{
   left: $margins-left;
   top: $margins;
 
-  width:80px;
-  height:80px;
 
   opacity: 0;
 
+  @include sprite($promo-logo);
 
-  > img{
-    width: 100%;
-    height:auto;
-  }
+
+
 }
 
 #copy1,

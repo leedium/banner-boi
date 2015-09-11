@@ -1,0 +1,24 @@
+<script type="text/javascript">
+    function bgExitHandler(){
+
+    }
+    function startBanner() {
+
+        document.getElementsByTagName('html')[0].className += "bannerReady";
+        var bannerSize = document.getElementById('app').getAttribute('data-type');
+        var tl = new TimelineLite();
+        tl.stop();
+
+        {{>animation_overrides}}
+
+        tl.play();
+    }
+    function loadAssets(){
+        var img = new Image();
+        img.onload = function(){
+            startBanner();
+        }
+        img.src = "spritesheet.png"
+    }
+    document.getElementById('main').addEventListener('click', bgExitHandler, false);
+</script>

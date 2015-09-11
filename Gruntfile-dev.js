@@ -1,7 +1,7 @@
 var src = 'src';
 var prevDest = 'dist/';
 var bannerConfig = require('./bannerConfig');
-var mozjpeg = require('imagemin-mozjpeg');
+var providerAPIArray = [];
 
 module.exports = function(grunt){
     require('load-grunt-tasks')(grunt);
@@ -26,14 +26,14 @@ module.exports = function(grunt){
         },
         watch: {
             css: {
-                files: 'src/**/*.scss',
+                files: src+'/**/*.scss',
                 tasks: ['noImageMin'],
                 options: {
                     debounceDelay: 1000
                 }
             },
             hbs: {
-                files: 'src/**/*.hbs',
+                files: src+'/**/*.hbs',
                 tasks: ['noImageMin'],
                 options: {
 
@@ -41,7 +41,7 @@ module.exports = function(grunt){
                 }
             },
             js: {
-                files: 'src/**/*.js',
+                files: src+'/**/*.js',
                 tasks: ['noImageMin'],
                 options: {
 
@@ -57,7 +57,7 @@ module.exports = function(grunt){
             dist: {
                 files: [{
                     expand: true,
-                    cwd: 'src',
+                    cwd: src,
                     src: ['**/*.scss'],
                     dest: 'temp',
                     ext: '.css'
@@ -88,7 +88,6 @@ module.exports = function(grunt){
                 },
                 files: [{
                     expand: true,
-                    //cwd: 'build/',
                     src: ['temp/**/*.html']
                 }]
             }
@@ -110,7 +109,7 @@ module.exports = function(grunt){
                 },
                 files: [{
                     expand: true,
-                    cwd: 'src/',
+                    cwd: src+'/',
                     src: ['**/*.{png,jpg,gif,svg}'],
                     dest: 'temp/src/'
                 }]
@@ -118,16 +117,22 @@ module.exports = function(grunt){
         },
         assemble: {
             options: {
-                partials: ['src/templates/partials/*.hbs'],
+                partials: [src+'/templates/partials/**/*.hbs'],
                 src: ['!src/templates/partials/*.hbs' ],
                 helpers: ['templates/helpers/helper-*.js']
+            },
+            copyTo:{
+                files:{
+                    'temp/': [src+'/templates/provider-template/**/*.hbs' ]
+                }
             }
+
         },
         copy: {
             common: {
                 files: [
                     {
-                        src: ['src/main.js'], dest: 'main.js'
+                        src: [src+'/main.js'], dest: 'main.js'
 
                     },
                     {
@@ -136,17 +141,6 @@ module.exports = function(grunt){
                 ]
 
             },
-//            images: {
-//                files: [
-//                    {
-//                        expand: true,
-//                        cwd: 'src/',
-//                        src: ['**/*.gif','**/*.jpg','**/*.png'],
-//                        dest: 'temp/src'
-//                    }
-//                ]
-//
-//            },
             imagesToFolders: {
                 files: [
                     {
@@ -155,8 +149,7 @@ module.exports = function(grunt){
                         src: ['*.gif','*.jpg','*.png'],
                         dest: 'temp/src/templates/provider-template'
                     }
-                ],
-
+                ]
             },
             folders:{
 
@@ -172,14 +165,15 @@ module.exports = function(grunt){
         },
         replace: {
             options:{
-                processTemplates:false
+                processTemplates:true
             }
         },
         clean: {
             build: {
-                src: ["temp",'.sass-cache']
+                src: ["temp",'.sass-cache', 'src/spritesheet.png', 'src/spritesheet-polite.png']
             }
         },
+        // make a zipfile
         compress: {
             main: {
                 options: {
@@ -191,20 +185,20 @@ module.exports = function(grunt){
             }
         },
         sprite:{
-            all: {
-                src: 'src/sprites/*.png',
-                dest: 'src/spritesheet.png',
-                destCss: 'src/scss/_sprites.scss'
-            },
             polite: {
-                src: 'src/sprites-polite/*.png',
-                dest: 'src/spritesheet-polite.png',
-                destCss: 'src/scss/_sprites-polite.scss',
+                src: src+'/images/sprites-polite/*.png',
+                dest: src+'/spritesheet-polite.png',
+                destCss: src+'/scss/_sprites-polite.scss',
+                imgPath:'spritesheet-polite.png'
+            },
+            all: {
+                src: src+'/images/sprites/*.png',
+                dest: src+'/spritesheet.png',
+                destCss: src+'/scss/_sprites.scss',
+                imgPath:'spritesheet.png',
                 cssOpts:{functions:false}
-
             }
         }
-
     });
 
     //COPY SHARED ASSETS
@@ -249,8 +243,16 @@ module.exports = function(grunt){
             })
         }
     }
+    var providerObj = {};
+    //get provider header and footers;
+    for (var i = bannerConfig.providers.length - 1; i >= 0; i--) {
 
-    //
+        var provider = bannerConfig.providers[i].id;
+        console.log(provider);
+        var providerPath = src+'/templates/includes/provider-api/'+provider;
+        providerObj[provider] = {head: grunt.file.read(providerPath +'/header.hbs'), scripts: grunt.file.read(providerPath+'/scripts.js')};
+    }
+
     var replaceObj = grunt.config.get('replace');
     for (var i = bannerConfig.providers.length - 1; i >= 0; i--) {
         var provider = bannerConfig.providers[i];
@@ -258,13 +260,14 @@ module.exports = function(grunt){
             src: [bannerConfig.dest+ '/' +provider.id+'/**/*.html'],
             overwrite: true,
             replacements: [
-                {from:'{SCRIPT_HEADER}', to: provider.headerScript},
-                {from:'{SCRIPT_FOOTER}', to: provider.footerScript},
+                {from:'{SCRIPT_HEADER}', to: providerObj[provider.id].head},
+                {from:'{SCRIPT_FOOTER}', to: providerObj[provider.id].scripts},
                 {from:'provider', to: provider.id},
                 {from:'campaign', to: bannerConfig.campaignName}
             ]
         }
     }
+
 
     grunt.config.set('copy', gruntCopy);
     grunt.config.set('replace', replaceObj);
@@ -281,8 +284,6 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browser-sync');
 
-
-    grunt.registerTask('default', ['sprite','sass','pleeease','assemble','image','copy','replace', 'htmlmin', 'clean']);
     grunt.registerTask('noImageMin', ['sprite','sass','pleeease','assemble','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
-    //grunt.registerTask('default', ['sass','pleeease','assemble','image','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
+    grunt.registerTask('default', ['sprite','sass','pleeease','assemble','image','copy','replace', 'htmlmin', 'clean', 'compress']);
 }
