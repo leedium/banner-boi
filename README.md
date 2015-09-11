@@ -74,3 +74,7 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
   $ grunt
 ```
 
+## View App (provider doubleclick)
+
+http://localhost:[port]/dck/index.html
+
