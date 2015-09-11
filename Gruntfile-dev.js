@@ -284,6 +284,6 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browser-sync');
 
-
+    grunt.registerTask('noImageMin', ['sprite','sass','pleeease','assemble','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
     grunt.registerTask('default', ['sprite','sass','pleeease','assemble','image','copy','replace', 'htmlmin', 'clean', 'compress']);
 }
