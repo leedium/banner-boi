@@ -69,8 +69,8 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 ## Modify the various html templates(.hbs) styles(.scss), .js
 ```js
   -/src/  //put non sprite images(<img>) here
-    --images//sprites/  //where post polite load images go, generated:  spritesheet.png
-    --images//sprites-polite/  //where pre polite load images go, generated spritesheet-polite.png
+    --images/sprites/  //where post polite load images go, generated:  spritesheet.png
+    --images/sprites-polite/  //where pre polite load images go, generated spritesheet-polite.png
     --/scss/  //SASS styles, css overrides for banner sizes
     --/templates/
       --/partials   //overrides for js, and markup if need be
