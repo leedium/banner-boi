@@ -25,7 +25,7 @@ Customizable to add more providers.
 
 [300x250, 336x280, 250x250, 120x600, 160x600, 300x600, 120x240, 728x90]
 
-JPG, GIF, PNG image optimization
+PNG image optimization
 
 spritesheet generation for non responsive images
 
