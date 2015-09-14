@@ -1,10 +1,20 @@
 #banner-boi   :)
+EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
 
 ##Version 1.0.1
 
-fixes from 1.0:
+
+##Release history
+
+1.0.1:
 - added standard iAB clickTag variable for various providers
 - added standard meta data for fixed sizes
+
+1.0.0:
+- modular js includes
+- refactored files / inheritance structure
+- pre/post polite load sprites
+
 
 
 EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
@@ -59,7 +69,7 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
   $ sudo npm install //if you get permission errors
 ```
 
-## Configure bannerConfig.js
+## Configure bannerConfig.js  - ADD more sizes and providers here
 ```js
   /bannerConfig.js
 ```
@@ -75,7 +85,6 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
       --/includes   //provider specific api
       --/provider-template  // Shouldn't have to change these! Only add new ones as required
 ```
-
 
 ## Start Application
 ```js
