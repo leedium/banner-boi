@@ -1,6 +1,11 @@
 #banner-boi   :)
 
-##Version 1.0.0
+##Version 1.0.1
+
+fixes from 1.0:
+- added standard iAB clickTag variable for various providers
+- added standard meta data for fixed sizes
+
 
 EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
 
