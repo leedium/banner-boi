@@ -1,12 +1,20 @@
 #banner-boi   :)
 EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
 
-##Version 1.0.0
+##Version 1.0.1
 
 
 ##Release history
 
-1.0.0 - Current.
+1.0.1:
+- added standard iAB clickTag variable for various providers
+- added standard meta data for fixed sizes
+
+1.0.0:
+- modular js includes
+- refactored files / inheritance structure
+- pre/post polite load sprites
+
 
 
 EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
