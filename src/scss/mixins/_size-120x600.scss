@@ -16,10 +16,14 @@
   }
 
   #product{
-    right: -12px;
+    right: -55px;
     bottom: 13%;
     top: inherit;
     left:inherit;
+
+    .img{
+      transform: scale(.6);
+    }
   }
 
   .cta{

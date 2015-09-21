@@ -22,17 +22,6 @@ $company-logo-total-width: 225px;
 $company-logo-total-height: 80px;
 $company-logo-image: 'spritesheet-polite.png';
 $company-logo: (80px, 0px, -80px, 0px, 145px, 32px, 225px, 80px, 'spritesheet-polite.png', 'company-logo', );
-$cta-arrow-name: 'cta-arrow';
-$cta-arrow-x: 80px;
-$cta-arrow-y: 32px;
-$cta-arrow-offset-x: -80px;
-$cta-arrow-offset-y: -32px;
-$cta-arrow-width: 23px;
-$cta-arrow-height: 23px;
-$cta-arrow-total-width: 225px;
-$cta-arrow-total-height: 80px;
-$cta-arrow-image: 'spritesheet-polite.png';
-$cta-arrow: (80px, 32px, -80px, -32px, 23px, 23px, 225px, 80px, 'spritesheet-polite.png', 'cta-arrow', );
 $promo-logo-name: 'promo-logo';
 $promo-logo-x: 0px;
 $promo-logo-y: 0px;
@@ -47,7 +36,7 @@ $promo-logo: (0px, 0px, 0px, 0px, 80px, 80px, 225px, 80px, 'spritesheet-polite.p
 $spritesheet-width: 225px;
 $spritesheet-height: 80px;
 $spritesheet-image: 'spritesheet-polite.png';
-$spritesheet-sprites: ($company-logo, $cta-arrow, $promo-logo, );
+$spritesheet-sprites: ($company-logo, $promo-logo, );
 $spritesheet: (225px, 80px, 'spritesheet-polite.png', $spritesheet-sprites, );
 
 /*

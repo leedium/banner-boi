@@ -1,0 +1,69 @@
+<!doctype HTML>
+<html id="app" data-type="size-160x600">
+<head>
+    <meta name="ad.size" content="width=160,height=600">
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TimelineLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/easing/EasePack.min.js"></script>
+    <script type="text/javascript" src="http://ds.serving-sys.com/BurstingScript/EBLoader.js"></script>
+    <script type="text/javascript">
+        var clickTag = "http://www.google.com";
+    </script>
+</head>
+<body>
+<div id="main" style="width:160px; height:600px;">
+    <div id="promologo"></div>
+    <div id="copy1" class="banner-copy">
+        <p>The Legend continues.</p>
+    </div>
+    <div id="copy2" class="banner-copy">
+        <p>Jordan VII.  The Legend Returns Spring 2016</p>
+    </div>
+    <div id="product"><div class="img"></div></div>
+    <p class="cta">buy now</p>
+    <div class="motorcraft-logo">
+        <div class="company-logo"></div>
+    </div>
+    <a class="clickTag" href="javascript:window.open(window.clickTag);"></a>
+</div>
+<script type="text/javascript">
+    function bgExitHandler(){
+
+    }
+    function startBanner() {
+
+        document.getElementsByTagName('html')[0].className += "bannerReady";
+        var bannerSize = document.getElementById('app').getAttribute('data-type');
+        var tl = new TimelineLite();
+        tl.stop();
+
+            tl.fromTo('#product',1.2,{y:'190%',display:'none'}, {display:'block', y:'0%',ease:Back.easeInOut});
+            tl.to('#promologo',.7, {autoAlpha:1,ease:Quint.easeOut},'-=.2');
+            tl.fromTo('#copy1',1,{autoAlpha:0, y:'100%',display:'none'}, {autoAlpha:1, display:'block', y:'0%',ease:Quint.easeOut});
+            tl.to('#copy1',.5,{autoAlpha:0, y:'130%',display:'none',ease:Back.easeInOut},'+=2.5');
+            tl.fromTo('#copy2',1,{autoAlpha:0, y:'100%',display:'none'}, {autoAlpha:1, display:'block', y:'0%',ease:Quint.easeOut});
+            tl.fromTo('.cta',.9,{autoAlpha:0,y:'110%',display:'none'}, {autoAlpha:1,display:'block', y:'0%',ease:Quint.easeOut},'-=.5');
+
+        tl.play();
+    }
+    function loadAssets(){
+        var img = new Image();
+        img.onload = function(){
+            startBanner();
+        }
+        img.src = "spritesheet.png"
+    }
+    document.getElementById('main').addEventListener('click', bgExitHandler, false);
+</script><script type="text/javascript">
+function checkInit() {
+    EB.isInitialized() ? onInit() : EB.addEventListener(EBG.EventName.EB_INITIALIZED, onInit)
+};
+function onInit() {
+    loadAssets()
+}
+checkInit();
+</script>
+</body>
+</html>

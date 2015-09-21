@@ -7,10 +7,13 @@
   }
 
   #product{
-    right: 18%;
-    top: -19px;
-    left:inherit;
+    right: 11%;
+    top: -39px;
+    left: inherit;
     width: $product-width;
+    .img{
+      transform:scale(.7);
+    }
   }
 
   .motorcraft-logo{

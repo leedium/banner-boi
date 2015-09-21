@@ -3,12 +3,17 @@
 
   #product{
     right: 18%;
-    top: -19px;
+    top: 32px;
     left:inherit;
+    .img{
+      transform:scale(1);
+    }
   }
 
   #promologo{
     width: 100px;
+    left:19%;
+    top:70px;
   }
 
   .banner-copy{

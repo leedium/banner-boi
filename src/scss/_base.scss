@@ -55,7 +55,12 @@ body{
   top: 13%;
   width: 206px;
   display:none;
-  @include sprite($product)
+
+  .img{
+    @include sprite($product)
+  }
+
+
 
 }
 
@@ -122,10 +127,11 @@ body{
 
   &:before {
     content: " ";
-    background: url($cta-arrow-image) no-repeat $cta-arrow-offset-x $cta-arrow-offset-y;
+//    background: url($cta-arrow-image) no-repeat $cta-arrow-offset-x $cta-arrow-offset-y;
+    background: url(cta-arrow-circle.svg) no-repeat 0 0;
     display: inline-block;
-    width: $cta-arrow-width;
-    height: $cta-arrow-height;
+    width: 23px;
+    height: 23px;
     position: relative;
     top: 8px;
     margin-left: 3px;

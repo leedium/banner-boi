@@ -12,6 +12,9 @@
   #product{
     @include hCenter(80%);
     width:$product-width;
+    .img{
+      transform:scale(1);
+    }
   }
 
   .cta{

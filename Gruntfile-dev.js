@@ -2,6 +2,15 @@ var src = 'src';
 var prevDest = 'dist/';
 var bannerConfig = require('./bannerConfig');
 var providerAPIArray = [];
+var del = require('del');
+var fs = require('fs'),
+    path = require('path');
+
+function getDirectories(srcpath) {
+    return fs.readdirSync(srcpath).filter(function(file) {
+        return fs.statSync(path.join(srcpath, file)).isDirectory();
+    });
+}
 
 module.exports = function(grunt){
     require('load-grunt-tasks')(grunt);
@@ -47,7 +56,16 @@ module.exports = function(grunt){
 
                     debounceDelay: 1000
                 }
+            },
+            svg: {
+                files: src+'/**/*.svg',
+                tasks: ['noImageMin'],
+                options: {
+
+                    debounceDelay: 1000
+                }
             }
+
 
         },
         sass: {
@@ -146,7 +164,7 @@ module.exports = function(grunt){
                     {
                         expand: true,
                         cwd: 'temp/src/',
-                        src: ['*.gif','*.jpg','*.png'],
+                        src: ['*.gif','*.jpg','*.png','*.svg'],
                         dest: 'temp/src/templates/provider-template'
                     }
                 ]
@@ -168,6 +186,7 @@ module.exports = function(grunt){
                 processTemplates:true
             }
         },
+
         clean: {
             build: {
                 src: ["temp",'.sass-cache', 'src/spritesheet.png', 'src/spritesheet-polite.png']
@@ -243,6 +262,7 @@ module.exports = function(grunt){
             })
         }
     }
+
     var providerObj = {};
     //get provider header and footers;
     for (var i = bannerConfig.providers.length - 1; i >= 0; i--) {
@@ -268,9 +288,27 @@ module.exports = function(grunt){
         }
     }
 
-
     grunt.config.set('copy', gruntCopy);
     grunt.config.set('replace', replaceObj);
+    grunt.registerTask('delSizes','remove unused sizes',function(){
+        var providerFolder = getDirectories('./temp/src/templates/provider-template/');
+        var delArray = [];
+        for (var k = 0; k < providerFolder.length; k++) {
+            var sizeAvailable = false;
+            var folderSize = providerFolder[k].split('-')[2];
+            for (var j = 0; j < bannerConfig.sizes.length ; j++) {
+                var size = bannerConfig.sizes[j];
+                if(folderSize ==  size){
+                    sizeAvailable = true;
+                    continue;
+                }
+            }
+            if(!sizeAvailable){
+                delArray.push('./temp/src/templates/provider-template/provider-campaign-'+folderSize);
+            }
+        }
+        del(delArray);
+    });
     grunt.loadNpmTasks('grunt-spritesmith');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -284,6 +322,8 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browser-sync');
 
-    grunt.registerTask('noImageMin', ['sprite','sass','pleeease','assemble','copy','replace', 'htmlmin', 'clean','browserSync','watch' ]);
-    grunt.registerTask('default', ['sprite','sass','pleeease','assemble','image','copy','replace', 'htmlmin', 'clean', 'compress']);
+
+    //grunt.registerTask('default',['sass','pleeease','assemble','image','copy','replace',]);
+    grunt.registerTask('noImageMin', ['sprite','sass','pleeease','assemble', 'delSizes','image', 'copy','replace', 'htmlmin', 'clean']);
+    grunt.registerTask('default', ['sprite','sass','pleeease','assemble', 'delSizes','image', 'copy','replace', 'htmlmin',  'compress', 'clean' ]);
 }

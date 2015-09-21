@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "assemble": "^0.4.42",
+    "del": "^2.0.2",
     "grunt": "^0.4.5",
     "grunt-assemble": "^0.4.0",
     "grunt-browser-sync": "^2.1.3",
