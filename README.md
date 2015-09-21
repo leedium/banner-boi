@@ -1,10 +1,15 @@
 #banner-boi   :)
 EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
 
-##Version 1.0.1
+##Version 1.0.2
 
 
 ##Release history
+
+1.0.2
+- add svg icons/helpers example (cta)
+- add 970x250 layout
+- fixed inactive size folder from being included in final bundle
 
 1.0.1:
 - added standard iAB clickTag variable for various providers
