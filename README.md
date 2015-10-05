@@ -1,10 +1,12 @@
 #banner-boi   :)
 EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
 
-##Version 1.0.2
+##Version 1.0.21
 
 
 ##Release history
+1.0.21
+- add utf-8 encoding <meta>
 
 1.0.2
 - add svg icons/helpers example (cta)
