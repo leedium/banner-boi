@@ -1,10 +1,13 @@
 #banner-boi   :)
 EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
 
-##Version 1.0.21
+##Version 1.0.22
 
 
 ##Release history
+1.0.22
+- fixed ie11 radial gradient issue, with fallback
+
 1.0.21
 - add utf-8 encoding <meta>
 
