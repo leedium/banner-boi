@@ -75,10 +75,12 @@ html, body, h1, h2, h3, h4, h5, h6, p {
   font-weight: 300;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   position: relative;
+  background: #CCCCCC;
   background: -webkit-radial-gradient(50% 50%, circle cover, #FFFFFF 0%, #CCCCCC 100%);
   background: -moz-radial-gradient(50% 50%, circle cover, #FFFFFF 0%, #CCCCCC 100%);
   background: radial-gradient(50% 50%, circle cover, #FFFFFF 0%, #CCCCCC 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#CCCCCC',GradientType=1 ); }
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#CCCCCC',GradientType=1 );
+  background: -ms-radial-gradient(50% 50%, circle cover, #FFFFFF, #CCCCCC); }
   #main > div {
     position: absolute; }
 
