@@ -2,7 +2,7 @@ grun#banner-boi   :)
 EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
 
 ##Version 1.1
-
+##[Example](http://banner-boi.leedium.com)
 
 ##Release history
 1.1
@@ -40,7 +40,6 @@ EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amou
 
 ![alt text](https://github.com/leedium/banner-boi/blob/master/files.png "Files")
 
-##[Example](http://banner-boi.leedium.com)
 
 ##Includes
 
