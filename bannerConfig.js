@@ -18,7 +18,7 @@ var bannerConfig = {
     ],
     sizes : ["300x250","336x280","120x600", "160x600","300x600","728x90","468x60","970x250"],
     minifyCSS: true,
-    loops:0,
+    loops:3,
     reloadDelay:3000,
     gsapSize:29.3,
     backupImageType:'.gif'

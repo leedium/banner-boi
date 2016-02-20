@@ -54,7 +54,7 @@
     var tl = new TimelineLite();
     tl.eventCallback('onComplete',function(){
         loop++;
-        if(loop < 0){  tl.restart();  }
+        if(loop < 3){  tl.restart();  }
     })
     tl.stop();
         tl.fromTo('#sceneContainer',.8,{autoAlpha:'0'}, {autoAlpha:'1'});
