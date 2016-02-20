@@ -144,5 +144,4 @@ http://localhost:3000/dck/
 ```
 
 ## Contributors
-[Mark Rutter](https://www.google.com) 
-mark.c.rutter@gmail.com  (Ideas/QA)
+[Mark Rutter](http://awebmonkey.com) / mark.c.rutter@gmail.com - (Ideas/QA)
