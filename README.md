@@ -140,5 +140,5 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 
 ## View App (provider doubleclick)
 ```js
-http://localhost:[port]/dck/index.html
+http://localhost:3000/dck/
 ```
