@@ -1,10 +1,17 @@
-#banner-boi   :)
+grun#banner-boi   :)
 EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
 
-##Version 1.0.22
+##Version 1.1
 
 
 ##Release history
+1.1
+- added local spritesheet overrides for each creative, allowing for greater customizations across sizes
+- added banner package file size check for < 200KB to preview page (pass/fail)
+- added date/time timestamp to preview page for versioning
+- optimizations.
+
+
 1.0.22
 - fixed ie11 radial gradient issue, with fallback
 
