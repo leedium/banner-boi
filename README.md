@@ -7,9 +7,11 @@ EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amou
 ##Release history
 1.1
 - added local spritesheet overrides for each creative, allowing for greater customizations across sizes
+- added loop/replay count config and display
 - added banner package file size check for < 200KB to preview page (pass/fail)
+- added backup gif preview on preview page
 - added date/time timestamp to preview page for versioning
-- optimizations.
+- optimizations(baked in css, removed comments, clean whitespace)
 
 
 1.0.22
@@ -48,7 +50,7 @@ Customizable to add more providers.
 
 8 of the most popular sizes.
 
-[300x250, 336x280, 250x250, 120x600, 160x600, 300x600, 120x240, 728x90]
+[300x250, 336x280, 120x600, 160x600, 300x600, 970x250, 728x90, 468x60]
 
 PNG image optimization
 
@@ -67,6 +69,10 @@ Handlebars for templating.
 html minification
 
 ability to override master version.
+
+Max File(200KB) warning / test
+
+Loop/Repeat count
 
 browser-sync
 
@@ -88,7 +94,32 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 
 ## Configure bannerConfig.js  - ADD more sizes and providers here
 ```js
-  /bannerConfig.js
+  var bannerConfig = {
+      dest: 'dist',
+      campaignName : "banner-boi-preview",
+      providers : [
+          {
+              id:"dck",
+              clickTag:"https://www.doubleclickbygoogle.com/"
+          }
+          //{
+          //    id:"sizmek",
+          //     clickTag:"http://www.sizmek.com"
+
+          //},
+          //{
+          //    id:"adrime",
+          //     clickTag:"http://www.adrime.com"
+          //}
+      ],
+      sizes : ["300x250","336x280","120x600", "160x600","300x600","728x90","468x60","970x250"],
+      minifyCSS: true,
+      loops:0,
+      reloadDelay:3000,
+      gsapSize:29.3,
+      backupImageType:'.gif'
+  }
+  module.exports = bannerConfig;
 ```
 
 ## Modify the various html templates(.hbs) styles(.scss), .js

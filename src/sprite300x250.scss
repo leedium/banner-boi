@@ -1,0 +1,26 @@
+@import "scss/mixins_sprite300x250";
+#sceneContainer{
+  .bg-mountains{
+    transform: translateX(-37%);
+  }
+  .bg-car{
+    transform: translateX(-26%);
+  }
+
+  .bg-mountains{
+    @include sprite($bg1)
+  }
+  .bg-car{
+    @include sprite($bg2)
+  }
+
+}
+
+#logoMargin{
+  .label-cta{
+    width: 200px;
+  }
+
+}
+
+

@@ -1,0 +1,26 @@
+tl.fromTo('#sceneContainer',.8,{autoAlpha:'0'}, {autoAlpha:'1'});
+tl.fromTo('.bg-mountains',5,{x:'-32%'}, {x:'-6%',ease:Quint.easeInOut});
+tl.fromTo('.bg-car',5,{x:'-26%'}, {x:'50%',ease:Quint.easeInOut},'-=5');
+tl.fromTo('.haze',.3,{x:'-100%'}, {x:'0%',ease:Power3.easeOut}, '-=.1');
+
+
+tl.fromTo('.copy1',.8,{y:'5px', autoAlpha:'0'}, {y:'0px', autoAlpha:'1', ease:Power3.easeOut},'+=.2');
+tl.to('.copy1',.5,{y:'10px', autoAlpha:'0', ease:Power3.easeIn},'+=1');
+
+tl.fromTo('.copy2',.8,{y:'5px', autoAlpha:'0'}, {y:'0px', autoAlpha:'1', ease:Power3.easeOut},'-=.05');
+tl.to('.copy2',.5,{y:'10px', autoAlpha:'0', ease:Power3.easeIn},'+=1');
+
+tl.fromTo('.copy3',.8,{y:'5px', autoAlpha:'0'}, {y:'0px', autoAlpha:'1', ease:Power3.easeOut},'-=.05');
+tl.to('.copy3',.5,{y:'10px', autoAlpha:'0', ease:Power3.easeIn},'+=1');
+
+tl.to('.bg-car',9,{x:'-26%'});
+tl.to('.bg-mountains',9,{x:'-32%'}, '-=8.9');
+tl.to('.haze',.5, {x:'-100%',ease:Power3.easeIn}, '-=8.5');
+
+tl.to('.bg-mountains',.5,{autoAlpha:0}, '-=8');
+tl.to('.bg-car',.5,{autoAlpha:0}, '-=7.8');
+
+tl.fromTo('.product-logo',.5,{autoAlpha:0},{autoAlpha:1}, '-=7');
+tl.fromTo('.magazine-title',.5,{autoAlpha:0},{autoAlpha:1}, '-=7');
+tl.fromTo('.copy4',.8,{y:'5px', autoAlpha:'0'}, {y:'0px', autoAlpha:'1', ease:Power3.easeOut},'-=6.5');
+tl.fromTo('.label-cta',.8,{autoAlpha:'0'}, {autoAlpha:'1'},'-=6');

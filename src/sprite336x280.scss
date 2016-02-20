@@ -1,0 +1,18 @@
+@import "sprite300x250";
+@import "scss/mixins_sprite336x280";
+
+#sceneContainer{
+  transform: scale(1.12);
+  .bg-mountains{
+    transform: translateX(-32%);
+  }
+  .bg-car{
+    transform: translate(-26%, -18%);
+  }
+}
+
+#logoMargin{
+  height: 65px;
+}
+
+

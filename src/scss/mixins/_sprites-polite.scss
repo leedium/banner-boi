@@ -1,0 +1,92 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$ford-logo-name: 'ford-logo';
+$ford-logo-x: 0px;
+$ford-logo-y: 32px;
+$ford-logo-offset-x: 0px;
+$ford-logo-offset-y: -32px;
+$ford-logo-width: 98px;
+$ford-logo-height: 37px;
+$ford-logo-total-width: 145px;
+$ford-logo-total-height: 69px;
+$ford-logo-image: 'spritesheet-polite.png';
+$ford-logo: (0px, 32px, 0px, -32px, 98px, 37px, 145px, 69px, 'spritesheet-polite.png', 'ford-logo', );
+$product-logo-name: 'product-logo';
+$product-logo-x: 0px;
+$product-logo-y: 0px;
+$product-logo-offset-x: 0px;
+$product-logo-offset-y: 0px;
+$product-logo-width: 145px;
+$product-logo-height: 32px;
+$product-logo-total-width: 145px;
+$product-logo-total-height: 69px;
+$product-logo-image: 'spritesheet-polite.png';
+$product-logo: (0px, 0px, 0px, 0px, 145px, 32px, 145px, 69px, 'spritesheet-polite.png', 'product-logo', );
+$spritesheet-width: 145px;
+$spritesheet-height: 69px;
+$spritesheet-image: 'spritesheet-polite.png';
+$spritesheet-sprites: ($ford-logo, $product-logo, );
+$spritesheet: (145px, 69px, 'spritesheet-polite.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

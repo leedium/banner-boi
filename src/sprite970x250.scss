@@ -1,0 +1,68 @@
+@import "scss/mixins/config";
+@import "scss/mixins_sprite970x250";
+#sceneContainer {
+  .bg-mountains {
+    @include sprite($bg1);
+    transform:translateX(-11%);
+  }
+  .bg-car {
+    @include sprite($bg2);
+    bottom: 43px;
+    transform: translateX(-22%);
+  }
+}
+
+#sceneContainer {
+  width:420px;
+  float: right;
+  position: relative;
+  overflow: hidden;
+}
+
+#copy .magazine-title,
+.product-logo{
+  opacity:1;
+}
+
+#copy {
+  .copy1,
+  .copy2,
+  .copy3
+  {
+    top:35px;
+    p{
+      font-size:35px;
+      color:$COLOR_GREEN;
+      line-height: 37px;
+    }
+  }
+  .copy4,
+  .copy3{
+    width: 500px;
+  }
+  .copy4{
+     top:0;
+    p{
+      font-size:35px;
+      line-height: 37px;
+    }
+
+  }
+
+}
+
+
+//#copy {
+//  .copy1,
+//  .copy2,
+//  .copy3,
+//  .copy4 {
+//    top:-36px;
+//
+//  }
+//  .copy4{
+//    top: -55px;
+//    left: 25%;
+//  }
+//
+//}

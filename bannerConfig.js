@@ -1,19 +1,26 @@
 var bannerConfig = {
     dest: 'dist',
-    campaignName : "demo",
+    campaignName : "banner-boi-preview",
     providers : [
         {
-            id:"dck"
-        },
-        {
-            id:"sizmek"
-        },
-        {
-            id:"adrime"
+            id:"dck",
+            clickTag:"https://www.doubleclickbygoogle.com/"
         }
+        //{
+        //    id:"sizmek",
+        //     clickTag:"http://www.sizmek.com"
+
+        //},
+        //{
+        //    id:"adrime",
+        //     clickTag:"http://www.sizmek.com"
+        //}
     ],
-    sizes : ["120x600","160x600","300x250","300x600","336x280","728x90","970x250"],
-    minifyCSS: false,
-    reloadDelay:3000
+    sizes : ["300x250","336x280","120x600", "160x600","300x600","728x90","468x60","970x250"],
+    minifyCSS: true,
+    loops:0,
+    reloadDelay:3000,
+    gsapSize:29.3,
+    backupImageType:'.gif'
 }
 module.exports = bannerConfig;

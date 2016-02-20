@@ -1,5 +1,5 @@
-function bgExitHandler() {
-};
-$(document).ready(function () {
+window.addEventListener('load',function load(){
     loadAssets();
+    window.removeEventListener('load', load);
 })
+

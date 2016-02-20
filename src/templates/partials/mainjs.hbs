@@ -1,17 +1,19 @@
 <script type="text/javascript">
-    function bgExitHandler(){
-
-    }
+    var loop = 0;
+    var inited = false;
+    var tl = new TimelineLite();
+    tl.eventCallback('onComplete',function(){
+        loop++;
+        if(loop < {LOOPS}){  tl.restart();  }
+    })
+    tl.stop();
+    {{>animation_overrides}}
     function startBanner() {
-
-        document.getElementsByTagName('html')[0].className += "bannerReady";
-        var bannerSize = document.getElementById('app').getAttribute('data-type');
-        var tl = new TimelineLite();
-        tl.stop();
-
-        {{>animation_overrides}}
-
-        tl.play();
+        if(!inited){
+            inited = true;
+            document.getElementsByTagName('html')[0].className += "bannerReady";
+        }
+       tl.play();
     }
     function loadAssets(){
         var img = new Image();
@@ -20,5 +22,4 @@
         }
         img.src = "spritesheet.png"
     }
-    document.getElementById('main').addEventListener('click', bgExitHandler, false);
 </script>

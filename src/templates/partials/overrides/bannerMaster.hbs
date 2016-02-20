@@ -3,14 +3,16 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta name="ad.size" content="width={{width}},height={{height}}">
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenLite.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TimelineLite.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/plugins/CSSPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/easing/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TimelineLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/CSSPlugin.min.js"></script>
     {SCRIPT_HEADER}
+    <style>
+        {SCRIPT_STYLES_COMMON}
+        {SCRIPT_STYLES_CUSTOM}
+    </style>
     <script type="text/javascript">
-        var clickTag = "http://www.google.com";
+        var clickTag = "{DEFAULT_CLICK_TAG}";
     </script>
 </head>
 <body>
@@ -42,8 +44,8 @@
 {{#is key "300x600"}}
     {{> bannerMarkup_120x600}}
 {{/is}}
-{{#is key "300x600"}}
-    {{> bannerMarkup_120x600}}
+{{#is key "468x60"}}
+    {{> bannerMarkup_468x60}}
 {{/is}}
 {{#is key ""}}
     {{> bannerMarkup_global}}

@@ -1,11 +1,9 @@
-@import "scss/sprites-polite";
-@import "scss/sprites";
-@import "scss/variables";
-@import "scss/config";
+@import "scss/mixins/variables";
+@import "scss/mixins/config";
 @import "scss/mixins/helpers";
-@import "scss/base";
-@import "scss/overrides";
-//@import "scss/mediaqueries";
+@import "scss/mixins_sprites-polite";
+@import "scss/mixins/base";
+
 
 
 

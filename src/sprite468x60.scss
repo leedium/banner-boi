@@ -1,0 +1,65 @@
+@import "sprite728x90";
+@import "scss/mixins_sprite468x60";
+
+
+.product-logo{
+  transform: scale(.7);
+  left: -16px;
+  top: 3px;
+}
+
+.ford-logo {
+  bottom: -41px;
+  transform: scale(0.6);
+  left: 6px;
+}
+
+.label-cta{
+  display: none;
+}
+
+#copy {
+  .copy1,
+  .copy2,
+  .copy3,
+  .copy4 {
+    top:-18px;
+    p{
+      font-size: 14px;
+      top:22px;
+      line-height: 19px;
+    }
+
+  }
+
+}
+
+
+#copy {
+  .magazine-title{
+    left: 7px;
+    font-size: 11px;
+    top: 32px;
+  }
+
+  .copy4{
+    top: -38px;
+    left: 27%;
+
+  }
+}
+
+
+
+
+
+#sceneContainer{
+  transform: scale(.85);
+  top: -5px;
+  .bg-car{
+    bottom: -14px;
+  }
+}
+
+
+

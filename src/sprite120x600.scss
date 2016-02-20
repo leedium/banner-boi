@@ -1,0 +1,60 @@
+@import "sprite160x600";
+@import "scss/mixins_sprite120x600";
+
+
+
+
+#copy{
+  .copy4{
+    p{
+      font-size: 24px;
+      line-height: 27px;
+    }
+  }
+
+  .product-logo{
+    transform: scale(0.7);
+    top: 5px;
+    left: -14px;
+  }
+
+
+  .magazine-title{
+    font-size: 13px;
+    top:35px;
+  }
+
+}
+
+#copy{
+  .copy1,
+  .copy2,
+  .copy3{
+    //top: 201px;
+    //position: relative;
+
+    p{
+
+      font-size:13px;
+      line-height: 17px;
+
+    }
+  }
+
+}
+
+
+
+#logoMargin{
+  .label-cta{
+    margin-top: 55px;
+    .cta-copy{
+      left: 32px;
+      font-size: 12px;
+
+    }
+  }
+
+
+}
+

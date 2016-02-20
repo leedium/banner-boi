@@ -1,0 +1,77 @@
+@import "scss/mixins_sprite160x600";
+#sceneContainer{
+  .bg-mountains{
+    @include sprite($bg1);
+  }
+  .bg-car{
+    @include sprite($bg2);
+    bottom: 120px;
+  }
+
+}
+
+#logoMargin{
+  height: 121px;
+  .label-cta{
+    margin-top: 55px;
+    .cta-copy{
+      left: 32px;
+      font-size: 12px;
+      top: -20px;
+    }
+  }
+}
+
+
+
+
+.ford-logo {
+   float: none;
+   right: 0px;
+   margin: 0 auto;
+}
+
+#copy {
+  .copy1,
+  .copy2,
+  .copy3,
+  .copy4 {
+    top:0px;
+
+  }
+
+  .product-logo{
+    left:7px;
+  }
+
+  .copy4{
+    top:50px;
+    p{
+
+      font-size: 33px;
+      line-height: 35px;
+    }
+  }
+
+  .copy1,
+  .copy2,
+  .copy3{
+    top: 201px;
+
+
+    p{
+      font-size: 17px;
+      line-height: 22px;
+
+    }
+  }
+
+
+}
+
+.service-list{
+  li:first-child{
+    margin-bottom:15px;
+  }
+}
+

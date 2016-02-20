@@ -1,0 +1,233 @@
+//@font-face {
+//  font-family: 'FordAntennaBlack';
+//  src: url('fonts/fordantenna-black-webfont.eot');
+//  src: local('FordAntennaBlack'), url('fonts/fordantenna-black-webfont.woff') format('woff'), url('fonts/fordantenna-black-webfont.ttf') format('truetype'), url('fonts/fordantenna-black-webfont.svg#webfontD7UuRJ45') format('svg');
+//  font-weight: normal;
+//  font-style: normal;
+//}
+
+*{
+  box-sizing: border-box;
+}
+html,body,h1,h2,h3,h4,h5,h6,p{
+  padding:0;
+  margin:0;
+  font-family: FordAntennaBlack , "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+h1,h2,h3{
+  font-weight: bold;
+  font-family: FordAntennaBlack,"Open Sans", Helvetica, Arial, sans-serif;
+
+  text-transform: uppercase;
+}
+
+h1{
+  font-size: 37px;
+  line-height: 34px;
+}
+h2{
+  font-size: 27px;
+}
+
+p{
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size:12px;
+}
+
+body{
+
+}
+
+div{
+  position: absolute;
+}
+
+
+.heavy{
+  font-weight: bold;
+}
+
+.dark{
+  color:$COLOR_GREEN !important;
+}
+
+
+.clickTag{
+  position: absolute;
+  width:100%;
+  height:100%;
+  z-index: 99;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+
+#main{
+  color:#00317b;
+  width:inherit;
+  height:inherit;
+  font-size: 16px;
+  font-weight: 300;
+  font-family:"Open Sans", Helvetica, Arial, sans-serif;
+  position: relative;
+  overflow:hidden;
+  @include radialGradient(#FFFFFF,#F9F8FF);
+
+
+  > div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  border: 1px solid #CCCCCC;
+}
+
+#logoMargin{
+  height:52px;
+  background:#fff;
+  width:100%;
+  bottom:0;
+  z-index:10;
+  color: $COLOR_GREEN;
+
+  .label-cta{
+    width: 70%;
+    height:inherit;
+    margin:20px 0 0 10px;
+    font-size: 14px;
+    float:left;
+
+
+    .cta-icon{
+      @include sprite($cta-icon);
+      position:relative;
+      display: inline-block;
+      top: -2px;
+      left: -1px;
+      float:left;
+    }
+
+    .cta-copy{
+      position:relative;
+      display: inline-block;
+      float:left;
+      left: 5px;
+    }
+  }
+}
+
+.product-logo{
+  @include sprite($product-logo);
+  top: 10px;
+  left: 10px;
+  opacity:0;
+}
+
+.ford-logo{
+  @include sprite($brand-logo);
+  position: relative;
+  bottom:18px;
+  float: right;
+  right: 15px;
+
+}
+
+#copy{
+  width:inherit;
+  height:inherit;
+  z-index: 4;
+  .haze{
+    width:inherit;
+    height:inherit;
+    background: rgb(42, 68, 101);
+
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    opacity: .45;
+  }
+
+  .copy1,
+  .copy2,
+  .copy3,
+  .copy4{
+    width:100%;
+    position: absolute;
+    min-height:60px;
+    opacity:0;
+    transform: translateY(5px);
+    color: white;
+    width: 80%;
+    word-wrap: break-word;
+    //left:10px;
+
+
+
+    p{
+      //width: 85%;
+      margin: 0 auto;
+      left: 10px;
+      font-size: 22px;
+      top: 46px;
+      position: relative;
+      line-height: 27px;
+      //margin:0 auto;
+
+    }
+
+
+  }
+
+  .magazine-title{
+    position: absolute;
+
+    left: 11px;
+    font-weight: 900;
+    font-size: 13px;
+    text-transform: none;
+    opacity: 0;
+    color:$COLOR_GREEN;
+    top: 44px;
+
+
+
+  }
+
+  .copy4{
+    ul{
+      list-style: none;
+      position: relative;
+      top:10px;
+      padding: 0;
+    }
+
+  }
+}
+
+
+#sceneContainer{
+  width: inherit;
+  height: inherit;
+  opacity:0;
+  .bg-mountains,
+  .bg-car{
+
+  }
+
+  .bg-mountains{
+    z-index:0;
+  }
+  .bg-car{
+    bottom:42px;
+   z-index:1;
+  }
+
+}
+
+
+
+
+

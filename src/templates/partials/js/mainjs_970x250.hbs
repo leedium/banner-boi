@@ -1,0 +1,14 @@
+tl.fromTo('#sceneContainer',.8,{autoAlpha:'0'}, {autoAlpha:'1'});
+tl.fromTo('.bg-mountains',5,{x:'-11%'}, {x:'0%',ease:Quint.easeInOut});//
+tl.fromTo('.bg-car',5,{x:'-22%'}, {x:'0%',ease:Quint.easeInOut},'-=5');
+
+tl.fromTo('.copy1',.8,{y:'5px', autoAlpha:'0'}, {y:'0px', autoAlpha:'1', ease:Power3.easeOut},'-=4');
+tl.to('.copy1',.5,{y:'10px', autoAlpha:'0', ease:Power3.easeIn},'-=2');
+
+tl.fromTo('.copy2',.8,{y:'5px', autoAlpha:'0'}, {y:'0px', autoAlpha:'1', ease:Power3.easeOut},'-=1.5');
+tl.to('.copy2',.5,{y:'10px', autoAlpha:'0', ease:Power3.easeIn},'+=.5');
+
+tl.fromTo('.copy3',.8,{y:'5px', autoAlpha:'0'}, {y:'0px', autoAlpha:'1', ease:Power3.easeOut},'-=0');
+tl.to('.copy3',.5,{y:'10px', autoAlpha:'0', ease:Power3.easeIn},'+=1.5');
+
+tl.fromTo('.copy4',.8,{y:'5px', autoAlpha:'0'}, {y:'0px', autoAlpha:'1', ease:Power3.easeOut},'+=.3');
