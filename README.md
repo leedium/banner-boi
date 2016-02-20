@@ -142,3 +142,6 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 ```js
 http://localhost:3000/dck/
 ```
+
+## Contributors
+Mark Rutter - mark.c.rutter@gmail.com - (Ideas/QA)
