@@ -1,10 +1,10 @@
-grun#banner-boi   :)
+# banner-boi   :)
 EASY TO USE Automated HTML5 Standard Banner Creation Tool to save you crazy amounts of time.
 
-##Version 1.1
-##[Example](http://banner-boi.leedium.com)
+## Version 1.1
+## [Example](http://banner-boi.leedium.com)
 
-##Release history
+## Release history
 1.1
 - added local spritesheet overrides for each creative, allowing for greater customizations across sizes
 - added loop/replay count config and display
